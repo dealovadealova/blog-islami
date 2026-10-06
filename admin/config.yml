@@ -3,8 +3,8 @@ backend:
   repo: dealovadealova/blog-islami
   branch: main
   auth_type: pkce
-  app_id: GANTI_DENGAN_CLIENT_ID_ASLI_ANDA
-
+  app_id: Ov23li45EPjdVoshgvQN
+  
 media_folder: "images"
 public_folder: "/images"
 
