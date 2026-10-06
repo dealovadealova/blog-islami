@@ -2,7 +2,7 @@ backend:
   name: github
   # GANTI baris di bawah dengan username GitHub dan nama repositori Anda
   # Contoh: repo: budiman/blog-islami
-  repo: blog-islami
+  repo: dealovadealova/blog-islami
   branch: main
 
 media_folder: "images" # Tempat gambar akan disimpan
