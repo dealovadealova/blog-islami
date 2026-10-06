@@ -2,6 +2,7 @@ backend:
   name: github
   repo: dealovadealova/blog-islami
   branch: main
+  app_id: Ov23li45EPjdVoshgvQN
 
 media_folder: "images"
 public_folder: "/images"
