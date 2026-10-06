@@ -1,11 +1,11 @@
 backend:
   name: github
-  # GANTI baris di bawah dengan username GitHub dan nama repositori Anda
-  # Contoh: repo: budiman/blog-islami
   repo: dealovadealova/blog-islami
   branch: main
+  auth_type: pkce
+  app_id: GANTI_DENGAN_CLIENT_ID_ASLI_ANDA
 
-media_folder: "images" # Tempat gambar akan disimpan
+media_folder: "images"
 public_folder: "/images"
 
 collections:
