@@ -1,0 +1,23 @@
+backend:
+  name: github
+  # GANTI baris di bawah dengan username GitHub dan nama repositori Anda
+  # Contoh: repo: budiman/blog-islami
+  repo: blog-islami
+  branch: main
+
+media_folder: "images" # Tempat gambar akan disimpan
+public_folder: "/images"
+
+collections:
+  - name: "artikel"
+    label: "Artikel Kajian"
+    folder: "artikel"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Judul", name: "title", widget: "string"}
+      - {label: "Kategori", name: "category", widget: "string"}
+      - {label: "Tanggal", name: "date", widget: "datetime"}
+      - {label: "Gambar Ilustrasi", name: "thumbnail", widget: "image", required: false}
+      - {label: "Ringkasan", name: "summary", widget: "text"}
+      - {label: "Isi Tulisan", name: "body", widget: "markdown"}
