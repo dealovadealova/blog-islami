@@ -1,9 +1,10 @@
 ---
 title: 'Rahasia Niat: Mengubah Setiap Detik Hidup Menjadi Investasi Akhirat'
-category: Akhlak
+kategori: Akhlak
 date: 2026-10-07T09:21:00
 thumbnail: /images/image_83442bbd.jpg
 summary: Bukan tentang seberapa megah amalmu, tapi tentang ke mana hatimu berkiblat. Temukan bagaimana niat bekerja seperti "alkemis spiritual"—sebuah kekuatan tak terlihat yang mampu mengubah rutinitas harian Anda menjadi tumpukan pahala tanpa batas!
+category: Akhlak
 ---
 
 Dalam panggung kehidupan, setiap manusia sibuk memperbanyak aktivitas. Namun, di dalam Islam, bukan sekadar "apa" yang Anda lakukan yang menentukan nilai sebuah perbuatan, melainkan **"mengapa" Anda melakukannya**. Inilah **rahasia terbesar niat (niyyah)**—sebuah kekuatan tidak terlihat yang mampu mengubah rutinitas biasa menjadi ibadah luar biasa, serta menjadi kunci utama penentu nasib kita di akhirat.
