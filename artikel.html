@@ -7,29 +7,36 @@
   
   <!-- KODE PWA -->
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/png" href="icon.png">
-  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="icon" type="image/jpeg" href="icon.jpg">
+  <link rel="apple-touch-icon" href="icon.jpg">
   <meta name="theme-color" content="#059669">
   
-  <!-- Memanggil Tailwind CSS KHUSUS Artikel (Hanya 1 baris ini) -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  
-  <!-- Library pendukung -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style> body { font-family: 'Inter', sans-serif; } </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
+
   <nav class="bg-emerald-600 text-white shadow-md">
     <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="text-xl font-bold tracking-wide hover:text-emerald-200 transition">&larr; Kembali ke Beranda</a>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-4 py-12" id="konten-artikel">
-    <div class="text-center py-20">
-      <p class="text-slate-500 text-lg animate-pulse">Sedang memuat tulisan...</p>
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <!-- Wadah Isi Tulisan -->
+    <div id="konten-artikel">
+      <div class="text-center py-20">
+        <p class="text-slate-500 text-lg animate-pulse">Sedang memuat tulisan...</p>
+      </div>
+    </div>
+
+    <!-- Wadah Komentar Disqus (Awalnya disembunyikan sampai artikel selesai dimuat) -->
+    <div id="area-komentar" class="hidden bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12 mb-12 mt-8">
+      <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">Kolom Diskusi</h3>
+      <div id="disqus_thread"></div>
     </div>
   </main>
 
@@ -40,6 +47,7 @@
   <script>
     async function muatIsiArtikel() {
       const wadah = document.getElementById('konten-artikel');
+      const wadahKomentar = document.getElementById('area-komentar');
       const params = new URLSearchParams(window.location.search);
       const fileName = params.get('file');
 
@@ -71,6 +79,7 @@
              gambarHTML = `<img src="${pengaturan.thumbnail}" alt="${pengaturan.title}" class="w-full h-64 md:h-96 object-cover rounded-2xl shadow-sm mb-8">`;
           }
 
+          // 1. Menampilkan Isi Artikel & Tombol Share
           wadah.innerHTML = `
             <article class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12 mb-8">
               ${gambarHTML}
@@ -95,39 +104,43 @@
                 ${isiHTML}
               </div>
 
-              <!-- Bagian Tombol Interaksi (Like & Share) -->
+              <!-- Bagian Tombol Interaksi -->
               <div class="flex flex-col md:flex-row justify-between items-center py-6 border-t border-slate-100 gap-6 mt-8">
-                
-                <!-- Tombol Like (Dikembalikan) -->
                 <button id="btn-like" onclick="klikLike()" class="flex items-center gap-2 px-6 py-2 rounded-full border-2 border-slate-200 text-slate-600 font-semibold hover:border-pink-500 hover:text-pink-500 transition duration-300">
                   <svg id="icon-like" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                   Suka (<span id="angka-like">24</span>)
                 </button>
 
-                <!-- Tombol Share (Ikon Diperbesar Tanpa Background) -->
                 <div class="flex items-center gap-5">
                   <span class="text-slate-500 font-medium hidden md:inline">Bagikan:</span>
                   <a href="javascript:bagikanWA()" class="text-green-500 hover:text-green-600 transition transform hover:scale-110" title="Share ke WhatsApp">
-                    <!-- Ikon WA yang sangat besar -->
                     <svg class="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
                   </a>
                   <a href="javascript:salinLink()" class="text-slate-400 hover:text-slate-600 transition transform hover:scale-110" title="Copy Link">
-                    <!-- Ikon Copy yang sangat besar -->
                     <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                   </a>
                 </div>
               </div>
             </article>
-
-            <!-- Tampilan UI Komentar (Menunggu Pemasangan Disqus) -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12 mb-12">
-              <h3 class="text-xl font-bold text-slate-800 mb-6">Komentar Pembaca</h3>
-              <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-center">
-                <p class="text-slate-500 mb-4">Ingin berdiskusi mengenai tulisan ini?</p>
-                <button class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-2 px-6 rounded-lg transition shadow-md">Tinggalkan Komentar</button>
-              </div>
-            </div>
           `;
+
+          // 2. Memunculkan & Mengaktifkan Disqus
+          wadahKomentar.classList.remove('hidden');
+          
+          window.disqus_config = function () {
+              this.page.url = window.location.href;  
+              this.page.identifier = fileName; 
+          };
+          
+          const d = document, s = d.createElement('script');
+          // =====================================================================
+          // GANTI 'NAMA-SHORTNAME-ANDA' DI BAWAH INI DENGAN NAMA DARI DISQUS ANDA
+          // =====================================================================
+          s.src = 'https://irkham.disqus.com/embed.js';
+          
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+
         }
       } catch (error) {
         console.error(error);
@@ -135,9 +148,8 @@
       }
     }
 
-    // --- FUNGSI INTERAKSI INTERNET ---
+    // --- FUNGSI INTERAKSI INTERNET (TETAP AMAN) ---
     
-    // Fungsi Like
     let disukai = false;
     let jumlahLike = 24; 
     window.klikLike = function() {
@@ -160,14 +172,12 @@
       angka.innerText = jumlahLike;
     };
 
-    // Fungsi Share WhatsApp
     window.bagikanWA = function() {
       const judul = document.title;
       const url = window.location.href;
       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(judul + ' - Baca selengkapnya di: ' + url)}`, '_blank');
     };
 
-    // Fungsi Copy Link
     window.salinLink = function() {
       navigator.clipboard.writeText(window.location.href).then(() => {
         alert("Link artikel berhasil disalin!");
