@@ -19,10 +19,19 @@
     </div>
   </nav>
 
-  <!-- Wadah Isi Artikel -->
-  <main class="max-w-4xl mx-auto px-4 py-12" id="konten-artikel">
-    <div class="text-center py-20">
-      <p class="text-slate-500 text-lg animate-pulse">Sedang memuat tulisan...</p>
+  <!-- Wadah Utama Artikel -->
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <!-- Area Isi Tulisan -->
+    <div id="konten-artikel">
+      <div class="text-center py-20">
+        <p class="text-slate-500 text-lg animate-pulse">Sedang memuat tulisan...</p>
+      </div>
+    </div>
+    
+    <!-- Area Komentar Permanen (Akan diisi otomatis oleh script) -->
+    <div id="area-komentar" class="hidden bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12 mb-12 mt-8">
+      <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">Diskusi & Reaksi</h3>
+      <div id="tempat-komentar"></div>
     </div>
   </main>
 
@@ -34,6 +43,7 @@
   <script>
     async function muatIsiArtikel() {
       const wadah = document.getElementById('konten-artikel');
+      const wadahKomentar = document.getElementById('area-komentar');
       const params = new URLSearchParams(window.location.search);
       const fileName = params.get('file');
 
@@ -57,10 +67,7 @@
           const isiHTML = marked.parse(isiMarkdown);
           
           document.title = pengaturan.title + " - Blog Islami";
-
-          // Pengaturan Default: Nama Penulis & Tanggal
           const penulis = pengaturan.author || 'Mas Irkham';
-          // Membuat angka random untuk tampilan pembaca (UI preview)
           const angkaPembaca = Math.floor(Math.random() * 200) + 50; 
 
           let gambarHTML = '';
@@ -68,16 +75,15 @@
              gambarHTML = `<img src="${pengaturan.thumbnail}" alt="${pengaturan.title}" class="w-full h-64 md:h-96 object-cover rounded-2xl shadow-sm mb-8">`;
           }
 
+          // 1. Mencetak Isi Artikel
           wadah.innerHTML = `
-            <article class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12 mb-8">
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12">
               ${gambarHTML}
               
-              <!-- Bagian Judul dan Meta Info -->
               <div class="mb-8 border-b border-slate-100 pb-8 text-center">
                 <span class="inline-block bg-emerald-100 text-emerald-700 font-bold px-3 py-1 rounded-full text-sm uppercase tracking-wider mb-4">${pengaturan.category || 'Kajian'}</span>
                 <h1 class="text-3xl md:text-5xl font-bold text-slate-800 leading-tight mb-6">${pengaturan.title}</h1>
                 
-                <!-- Info Penulis & Pembaca -->
                 <div class="flex flex-wrap justify-center items-center gap-4 text-slate-500 text-sm font-medium">
                   <span class="flex items-center gap-1">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
@@ -90,42 +96,37 @@
                 </div>
               </div>
               
-              <!-- Isi Artikel -->
               <div class="prose prose-slate prose-emerald max-w-none md:text-lg leading-relaxed mb-12">
                 ${isiHTML}
               </div>
 
-              <!-- Bagian Tombol Interaksi (Like & Share) -->
-              <div class="flex flex-col md:flex-row justify-between items-center py-6 border-t border-slate-100 gap-4">
-                
-                <!-- Tombol Like -->
-                <button id="btn-like" onclick="klikLike()" class="flex items-center gap-2 px-6 py-2 rounded-full border-2 border-slate-200 text-slate-600 font-semibold hover:border-pink-500 hover:text-pink-500 transition duration-300">
-                  <svg id="icon-like" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                  Suka (<span id="angka-like">24</span>)
-                </button>
-
-                <!-- Tombol Share -->
-                <div class="flex items-center gap-3">
-                  <span class="text-sm font-semibold text-slate-500">Bagikan:</span>
-                  <a href="javascript:bagikanWA()" class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full transition" title="Share ke WhatsApp">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
+              <!-- Tombol Share Diperbesar -->
+              <div class="flex flex-col sm:flex-row justify-between items-center py-6 border-t border-slate-100 gap-4">
+                <span class="text-slate-500 font-medium">Bagikan tulisan ini:</span>
+                <div class="flex items-center gap-4">
+                  <a href="javascript:bagikanWA()" class="bg-green-500 hover:bg-green-600 text-white p-3 md:p-4 rounded-full transition shadow-md" title="Share ke WhatsApp">
+                    <svg class="w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
                   </a>
-                  <a href="javascript:salinLink()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 p-2 rounded-full transition" title="Copy Link">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                  <a href="javascript:salinLink()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 p-3 md:p-4 rounded-full transition shadow-md" title="Copy Link">
+                    <svg class="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                   </a>
                 </div>
               </div>
             </article>
-
-            <!-- Tampilan Kolom Komentar (UI Placeholder) -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12">
-              <h3 class="text-xl font-bold text-slate-800 mb-6">Komentar Pembaca</h3>
-              <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-center">
-                <p class="text-slate-500 mb-4">Ingin berdiskusi mengenai tulisan ini?</p>
-                <button class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-2 px-6 rounded-lg transition">Tambahkan Komentar</button>
-              </div>
-            </div>
           `;
+
+          // 2. Memunculkan Kolom Komentar (Utterances) secara aman
+          wadahKomentar.classList.remove('hidden');
+          const scriptKomentar = document.createElement('script');
+          scriptKomentar.src = "https://utteranc.es/client.js";
+          scriptKomentar.setAttribute("repo", "dealovadealova/blog-islami");
+          scriptKomentar.setAttribute("issue-term", "title");
+          scriptKomentar.setAttribute("label", "Komentar");
+          scriptKomentar.setAttribute("theme", "github-light");
+          scriptKomentar.setAttribute("crossorigin", "anonymous");
+          scriptKomentar.async = true;
+          document.getElementById('tempat-komentar').appendChild(scriptKomentar);
+
         }
       } catch (error) {
         console.error(error);
@@ -133,39 +134,12 @@
       }
     }
 
-    // --- FUNGSI INTERAKSI (LIKE & SHARE) ---
-    
-    // Fungsi Like (Efek Animasi & Simpan di Browser Lokal)
-    let disukai = false;
-    let jumlahLike = 24; // Angka awal
-    function klikLike() {
-      disukai = !disukai;
-      const btn = document.getElementById('btn-like');
-      const icon = document.getElementById('icon-like');
-      const angka = document.getElementById('angka-like');
-      
-      if (disukai) {
-        jumlahLike++;
-        icon.setAttribute('fill', 'currentColor');
-        btn.classList.add('border-pink-500', 'text-pink-500');
-        btn.classList.remove('border-slate-200', 'text-slate-600');
-      } else {
-        jumlahLike--;
-        icon.setAttribute('fill', 'none');
-        btn.classList.remove('border-pink-500', 'text-pink-500');
-        btn.classList.add('border-slate-200', 'text-slate-600');
-      }
-      angka.innerText = jumlahLike;
-    }
-
-    // Fungsi Share WhatsApp
     function bagikanWA() {
       const judul = document.title;
       const url = window.location.href;
       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(judul + ' - Baca selengkapnya di: ' + url)}`, '_blank');
     }
 
-    // Fungsi Copy Link
     function salinLink() {
       navigator.clipboard.writeText(window.location.href).then(() => {
         alert("Link artikel berhasil disalin!");
