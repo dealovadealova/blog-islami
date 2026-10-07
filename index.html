@@ -26,39 +26,43 @@
 <body class="bg-slate-50 text-slate-800">
 
  <!-- ========================================== -->
-  <!-- 1. NAVBAR ELEGAN MENU GESER (GLASSMORPHISM)-->
+  <!-- 1. NAVBAR ELEGAN (TOMBOL KOTAK & DROPDOWN) -->
   <!-- ========================================== -->
-  <!-- Tambahan style kecil agar garis scroll hilang di HP (biar lebih estetik) -->
-  <style>
-    .menu-geser::-webkit-scrollbar { display: none; }
-    .menu-geser { -ms-overflow-style: none; scrollbar-width: none; }
-  </style>
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 py-4 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 flex justify-center gap-2 md:gap-6">
+      
+      <!-- Tombol Menu: Beranda (Aktif) -->
+      <a href="index.html" class="px-3 py-2 md:px-5 md:py-2.5 bg-emerald-50 text-emerald-700 text-sm md:text-base font-semibold border border-emerald-200 shadow-sm rounded-xl hover:shadow-md hover:border-emerald-400 transition-all">
+        Beranda
+      </a>
 
-  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm">
-    <div class="max-w-4xl mx-auto px-4 py-4">
-      <ul class="flex items-center menu-geser overflow-x-auto whitespace-nowrap gap-6 text-sm font-semibold text-slate-600 md:justify-center">
-        <li>
-          <a href="index.html" class="text-emerald-600 border-b-2 border-emerald-600 pb-1">Beranda</a>
-        </li>
-        <li>
-          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">Profil</a>
-        </li>
-        <li>
-          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">Artikel</a>
-        </li>
-        <li>
-          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">Biografi</a>
-        </li>
-        <li>
-          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">Inspiratif</a>
-        </li>
-        <li>
-          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">Hikmah</a>
-        </li>
-        <li>
-          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">True Story</a>
-        </li>
-      </ul>
+      <!-- Tombol Menu: Profil Owner -->
+      <a href="profil.html" class="px-3 py-2 md:px-5 md:py-2.5 bg-white text-slate-600 text-sm md:text-base font-semibold border border-slate-200 shadow-sm rounded-xl hover:bg-emerald-50 hover:text-emerald-600 hover:shadow-md hover:border-emerald-400 transition-all">
+        Profil Owner
+      </a>
+
+      <!-- Tombol Menu: Artikel (Dropdown) -->
+      <div class="relative group">
+        <button class="px-3 py-2 md:px-5 md:py-2.5 bg-white text-slate-600 text-sm md:text-base font-semibold border border-slate-200 shadow-sm rounded-xl hover:bg-emerald-50 hover:text-emerald-600 hover:shadow-md hover:border-emerald-400 transition-all flex items-center gap-1">
+          Artikel
+          <!-- Ikon Panah ke Bawah -->
+          <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        
+        <!-- Kotak Isi Dropdown (Kategori) -->
+        <div class="absolute right-0 atau left-0 mt-2 w-44 bg-white border border-slate-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+          <ul class="py-1 text-sm text-slate-600 font-medium">
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Akhlak</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Motivasi</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Inspirasi</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Kisah</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Renungan</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Hikmah</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600">True Story</a></li>
+          </ul>
+        </div>
+      </div>
+      
     </div>
   </nav>
 
