@@ -3,29 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Islami Irkham</title>
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Islami Irkham</title>
-  
-  <!-- KODE PWA DITEMPEL DI SINI -->
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/png" href="icon.png">
-  <link rel="apple-touch-icon" href="icon.png">
-  <meta name="theme-color" content="#059669">
-  
-  <!-- Memanggil Tailwind CSS langsung via CDN -->
+  <title>Catatan Irkham - Beranda</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font dari Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
- <!-- ========================================== -->
+  <!-- ========================================== -->
   <!-- 1. NAVBAR ELEGAN (TOMBOL KOTAK & DROPDOWN) -->
   <!-- ========================================== -->
   <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 py-4 shadow-sm">
@@ -50,14 +33,14 @@
         </button>
         
         <!-- Kotak Isi Dropdown (Kategori) -->
-        <div class="absolute right-0 atau left-0 mt-2 w-44 bg-white border border-slate-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+        <div class="absolute right-0 md:left-0 mt-2 w-44 bg-white border border-slate-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
           <ul class="py-1 text-sm text-slate-600 font-medium">
-            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Akhlak</a></li>
-            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Motivasi</a></li>
-            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Inspirasi</a></li>
-            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Kisah</a></li>
-            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Renungan</a></li>
-            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50 last:border-0">Hikmah</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Akhlak</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Motivasi</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Inspirasi</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Kisah</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Renungan</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Hikmah</a></li>
             <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600">True Story</a></li>
           </ul>
         </div>
@@ -65,41 +48,29 @@
       
     </div>
   </nav>
-  <header class="max-w-4xl mx-auto px-4 py-8 md:py-12">
-    <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-[2rem] p-8 md:p-12 border border-emerald-100/50 shadow-sm relative overflow-hidden">
-      
-      <!-- Hiasan Latar Belakang (Estetika Abstrak Lembut) -->
-      <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40"></div>
-      <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40"></div>
 
-      <div class="relative z-10 flex flex-col items-center text-center">
+  <!-- ========================================== -->
+  <!-- 2. KARTU SAMBUTAN & PROFIL SINGKAT         -->
+  <!-- ========================================== -->
+  <header class="max-w-4xl mx-auto px-4 py-8">
+    <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-1 shadow-lg">
+      <div class="bg-white/95 backdrop-blur-sm rounded-[22px] p-6 md:p-8 flex flex-col items-center text-center">
         
-        <!-- Foto Profil (Bisa diganti dengan foto jenengan) -->
-        <div class="w-24 h-24 md:w-32 md:h-32 bg-white p-1.5 rounded-full shadow-md mb-6 relative">
-          <!-- Kita gunakan profil.png jenengan sebagai foto profil sementara -->
-          <img src="profil.png" alt="Mas Irkham" class="w-full h-full object-cover rounded-full">
-          <!-- Titik hijau tanda online/aktif -->
-          <div class="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-4 border-white rounded-full"></div>
+        <div class="relative w-24 h-24 md:w-32 md:h-32 mb-4">
+          <div class="absolute inset-0 bg-emerald-500 rounded-full animate-pulse blur-md opacity-30"></div>
+          <!-- FOTO PROFIL ANDA -->
+          <img src="profil.jpg" alt="Mas Irkham" class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-md">
         </div>
         
-        <!-- Label Salam -->
-        <span class="inline-block px-5 py-1.5 rounded-full bg-white text-emerald-600 text-sm font-semibold tracking-wide shadow-sm mb-5 border border-emerald-50">
-          Assalamu'alaikum Warahmatullahi Wabarakatuh
-        </span>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-2">Mas Irkham</h1>
+        <p class="text-emerald-600 font-semibold mb-4">Founder & Pengasuh Blog</p>
         
-        <!-- Judul Utama -->
-        <h1 class="text-3xl md:text-5xl font-extrabold text-slate-800 mb-4 tracking-tight leading-tight">
-          Selamat Datang di <br/>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Blog Kajian Islami</span>
-        </h1>
-        
-        <!-- Deskripsi Bio -->
-        <p class="text-slate-600 md:text-lg max-w-2xl mx-auto leading-relaxed mb-6 font-light">
-          Mencatat jejak kebaikan, berbagi hikmah, dan menebar inspirasi. Dikelola oleh <strong>Mas Irkham</strong>, sebagai pengingat diri dan wadah silaturahmi.
+        <p class="text-slate-600 max-w-lg mx-auto mb-6 leading-relaxed">
+          Selamat datang di Catatan Irkham. Ruang berbagi kajian, inspirasi, dan hikmah untuk merefleksikan diri menjadi pribadi yang lebih baik setiap harinya.
         </p>
-
-        <!-- Info Lokasi -->
-        <div class="flex items-center justify-center gap-2 text-slate-500 text-sm font-medium bg-white/60 px-4 py-2 rounded-xl">
+        
+        <!-- LOKASI -->
+        <div class="flex items-center justify-center gap-2 text-slate-500 text-sm font-medium bg-slate-50 px-4 py-2 rounded-xl border border-slate-100">
           <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
           Banyubiru, Kab. Semarang
         </div>
@@ -107,96 +78,98 @@
       </div>
     </div>
   </header>
-  
-  <!-- Area Daftar Artikel -->
-  <main class="max-w-6xl mx-auto px-4 mb-16">
-    <div class="flex items-center justify-between mb-8">
-      <h3 class="text-2xl font-semibold text-slate-800 border-b-2 border-emerald-500 inline-block pb-1">Kajian Terbaru</h3>
-    </div>
 
-    <!-- Wadah ini sekarang diberi ID agar bisa diisi oleh JavaScript -->
-    <div id="artikel-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <p class="text-slate-500 col-span-full text-center py-10">Memuat artikel kajian terbaru...</p>
+  <!-- ========================================== -->
+  <!-- 3. AREA DAFTAR ARTIKEL                     -->
+  <!-- ========================================== -->
+  <main class="max-w-4xl mx-auto px-4 pb-12">
+    <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+      <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+      Artikel Terbaru
+    </h2>
+    
+    <div id="daftar-artikel" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <p class="text-slate-500 col-span-full text-center py-10 animate-pulse">Memuat artikel...</p>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-400 py-8 text-center border-t border-slate-800">
-    <p class="text-sm">&copy; 2026 Blog Islami Irkham. Dibuat dengan niat kebaikan.</p>
-  </footer>
-<!-- Library bantuan untuk membaca format YAML dari CMS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-
+  <!-- ========================================== -->
+  <!-- 4. JAVASCRIPT PEMANGGIL ARTIKEL DARI GITHUB-->
+  <!-- ========================================== -->
   <script>
+    // URL REPOSITORI ANDA
+    const API_URL = 'https://api.github.com/repos/dealovadealova/blog-islami/contents/artikel';
+
     async function muatArtikel() {
-      const wadah = document.getElementById('artikel-container');
-      
       try {
-        // 1. Meminta daftar file dari folder 'artikel' di GitHub Anda
-        const respon = await fetch('https://api.github.com/repos/dealovadealova/blog-islami/contents/artikel');
-        const fileList = await respon.json();
-
-        if (!Array.isArray(fileList) || fileList.length === 0) {
-          wadah.innerHTML = '<p class="text-center col-span-full text-slate-500 py-10">Belum ada artikel yang dipublikasikan.</p>';
-          return;
-        }
-
+        const wadahArtikel = document.getElementById('daftar-artikel');
+        
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error("Gagal mengambil data dari GitHub");
+        const fileList = await response.json();
+        
         let htmlArtikel = '';
 
-        // 2. Membaca isi setiap file yang berakhiran .md
         for (const file of fileList) {
           if (file.name.endsWith('.md')) {
-            const fileRes = await fetch(file.download_url);
-            const teks = await fileRes.text();
+            try {
+              const fileRes = await fetch(file.download_url);
+              const teks = await fileRes.text();
 
-            // 3. Memisahkan Frontmatter (YAML) dan isi tulisan
-            const pembatas = teks.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-            
-            if (pembatas) {
-              const info = pembatas[1]; 
+              const pembatas = teks.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+              
+              if (pembatas) {
+                const info = pembatas[1]; 
 
-              // Menangkap data dari CMS dengan aman
-              const ambilJudul = info.match(/title:\s*['"]?(.*?)['"]?(\n|$)/);
-              let judul = ambilJudul ? ambilJudul[1] : 'Tanpa Judul';
+                // Penangkap Data Otomatis
+                const ambilJudul = info.match(/title:\s*['"]?(.*?)['"]?(\n|$)/);
+                let judul = ambilJudul ? ambilJudul[1].trim() : 'Tanpa Judul';
 
-              const ambilGambar = info.match(/thumbnail:\s*['"]?(.*?)['"]?(\n|$)/) || info.match(/gambar:\s*['"]?(.*?)['"]?(\n|$)/) \vert{}\vert{} info.match(/image:\s*['"]?(.*?)['"]?(\n\vert{}$)/);
-              let gambar = ambilGambar ? ambilGambar[1] : 'profil.jpg';
+                const ambilGambar = info.match(/(?:thumbnail|gambar|image):\s*['"]?(.*?)['"]?(\n|$)/);
+                let gambar = ambilGambar ? ambilGambar[1].trim() : 'profil.jpg';
 
-              const ambilRingkasan = info.match(/description:\s*['"]?(.*?)['"]?(\n|$)/) \vert{}\vert{} info.match(/ringkasan:\s*['"]?(.*?)['"]?(\n\vert{}$)/);
-              let ringkasan = ambilRingkasan ? ambilRingkasan[1] : 'Klik untuk membaca selengkapnya...';
+                const ambilRingkasan = info.match(/(?:description|ringkasan):\s*['"]?(.*?)['"]?(\n|$)/);
+                let ringkasan = ambilRingkasan ? ambilRingkasan[1].trim() : 'Klik untuk membaca selengkapnya...';
 
-              // Penangkap Kategori yang baru
-              const ambilKategori = info.match(/kategori:\s*['"]?(.*?)['"]?(\n|$)/);
-              let kategori = ambilKategori ? ambilKategori[1] : 'Tanpa Kategori';
+                const ambilKategori = info.match(/kategori:\s*['"]?(.*?)['"]?(\n|$)/);
+                let kategori = ambilKategori ? ambilKategori[1].trim() : 'Tanpa Kategori';
 
-              // 4. Mencetak kartu artikel
-              htmlArtikel += `
-                <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                  <img src="${gambar}" alt="${judul}" class="w-full h-48 object-cover">
-                  <div class="p-6 flex-grow flex flex-col">
-                    <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">${kategori}</span>
-                    <h4 class="text-xl font-bold mt-2 mb-3 leading-tight">${judul}</h4>
-                    <p class="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow">${ringkasan}</p>
-                    <a href="artikel.html?file=${file.name}" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700 mt-auto">Baca selengkapnya &rarr;</a>
-                  </div>
-                </article>
-              `;
+                // Merakit Kartu
+                htmlArtikel += `
+                  <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
+                    <img src="${gambar}" alt="${judul}" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                      <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">${kategori}</span>
+                      <h4 class="text-xl font-bold mt-2 mb-3 leading-tight">${judul}</h4>
+                      <p class="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow">${ringkasan}</p>
+                      <a href="artikel.html?file=${file.name}" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700 mt-auto">Baca selengkapnya &rarr;</a>
+                    </div>
+                  </article>
+                `;
+              }
+            } catch (err) {
+              console.log("Ada file yang tidak terbaca:", file.name);
             }
+          }
+        } 
+
+        // Menampilkan ke Layar
+        if (wadahArtikel) {
+          if (htmlArtikel === '') {
+            wadahArtikel.innerHTML = '<p class="text-center text-slate-500 col-span-full py-10">Belum ada artikel yang dipublikasikan.</p>';
+          } else {
+            wadahArtikel.innerHTML = htmlArtikel;
           }
         }
 
-        document.getElementById('daftar-artikel').innerHTML = htmlArtikel;
-        wadah.innerHTML = htmlArtikel;
-
       } catch (error) {
-        console.error('Gagal memuat:', error);
-        wadah.innerHTML = '<p class="text-center col-span-full text-red-500 py-10">Gagal memuat artikel dari server.</p>';
+        console.error(error);
+        document.getElementById('daftar-artikel').innerHTML = '<p class="text-center text-red-500 col-span-full py-10">Gagal memuat artikel. Silakan muat ulang halaman.</p>';
       }
     }
 
-    // Menjalankan mesin secara otomatis saat web dibuka
-    document.addEventListener('DOMContentLoaded', muatArtikel);
+    // Jalankan sistem
+    muatArtikel();
   </script>
-  
 </body>
 </html>
