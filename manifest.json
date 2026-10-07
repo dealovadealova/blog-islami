@@ -1,0 +1,17 @@
+{
+  "name": "Blog Islami Mas Irkham",
+  "short_name": "Blog Islami",
+  "description": "Catatan perjalanan dan kajian islami",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "icon.jpg",
+      "sizes": "192x192 512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
