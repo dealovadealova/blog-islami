@@ -53,42 +53,9 @@
       <h3 class="text-2xl font-semibold text-slate-800 border-b-2 border-emerald-500 inline-block pb-1">Kajian Terbaru</h3>
     </div>
 
-    <!-- Grid Layout untuk Kartu Artikel -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Contoh Kartu Artikel 1 -->
-      <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-        <img src="https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Masjid" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">Aqidah</span>
-          <h4 class="text-xl font-bold mt-2 mb-3 leading-tight">Keutamaan Menjaga Salat Tepat Waktu</h4>
-          <p class="text-slate-600 text-sm mb-4 line-clamp-3">Salat adalah tiang agama. Menjaganya di awal waktu bukan hanya sebuah kewajiban, tapi juga bentuk cinta kita kepada Sang Pencipta...</p>
-          <a href="#" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700">Baca selengkapnya &rarr;</a>
-        </div>
-      </article>
-
-      <!-- Contoh Kartu Artikel 2 -->
-      <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-        <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Al Quran" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">Tafsir</span>
-          <h4 class="text-xl font-bold mt-2 mb-3 leading-tight">Memahami Makna Sabar dalam Al-Quran</h4>
-          <p class="text-slate-600 text-sm mb-4 line-clamp-3">Sabar bukanlah sekadar menahan amarah, melainkan seni menerima ketetapan Allah dengan hati yang lapang dan terus berikhtiar...</p>
-          <a href="#" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700">Baca selengkapnya &rarr;</a>
-        </div>
-      </article>
-
-      <!-- Contoh Kartu Artikel 3 -->
-      <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-        <img src="https://images.pexels.com/photos/8164382/pexels-photo-8164382.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Doa" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">Akhlak</span>
-          <h4 class="text-xl font-bold mt-2 mb-3 leading-tight">Adab Berdoa Agar Cepat Dikabulkan</h4>
-          <p class="text-slate-600 text-sm mb-4 line-clamp-3">Ada waktu-waktu mustajab dan tata cara yang diajarkan Rasulullah saat memanjatkan doa. Mari kita pelajari bersama adab-adabnya...</p>
-          <a href="#" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700">Baca selengkapnya &rarr;</a>
-        </div>
-      </article>
-
+    <!-- Wadah ini sekarang diberi ID agar bisa diisi oleh JavaScript -->
+    <div id="artikel-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <p class="text-slate-500 col-span-full text-center py-10">Memuat artikel kajian terbaru...</p>
     </div>
   </main>
 
@@ -96,6 +63,70 @@
   <footer class="bg-slate-900 text-slate-400 py-8 text-center border-t border-slate-800">
     <p class="text-sm">&copy; 2026 Blog Islami Irkham. Dibuat dengan niat kebaikan.</p>
   </footer>
+<!-- Library bantuan untuk membaca format YAML dari CMS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
 
+  <script>
+    async function muatArtikel() {
+      const wadah = document.getElementById('artikel-container');
+      
+      try {
+        // 1. Meminta daftar file dari folder 'artikel' di GitHub Anda
+        const respon = await fetch('https://api.github.com/repos/dealovadealova/blog-islami/contents/artikel');
+        const fileList = await respon.json();
+
+        if (!Array.isArray(fileList) || fileList.length === 0) {
+          wadah.innerHTML = '<p class="text-center col-span-full text-slate-500 py-10">Belum ada artikel yang dipublikasikan.</p>';
+          return;
+        }
+
+        let htmlArtikel = '';
+
+        // 2. Membaca isi setiap file yang berakhiran .md
+        for (const file of fileList) {
+          if (file.name.endsWith('.md')) {
+            const fileRes = await fetch(file.download_url);
+            const teks = await fileRes.text();
+
+            // 3. Memisahkan Frontmatter (YAML) dan isi tulisan menggunakan Regex
+            const pembatas = teks.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+            
+            if (pembatas) {
+              const pengaturan = jsyaml.load(pembatas[1]); 
+              
+              const judul = pengaturan.title || 'Tanpa Judul';
+              const kategori = pengaturan.category || 'Kajian';
+              const ringkasan = pengaturan.summary || 'Baca selengkapnya...';
+              // Jika Anda tidak mengunggah gambar, otomatis pakai gambar default
+              const gambar = pengaturan.thumbnail || 'https://images.pexels.com/photos/8164382/pexels-photo-8164382.jpeg?auto=compress&cs=tinysrgb&w=800';
+
+              // 4. Mencetak kartu artikel
+              htmlArtikel += `
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
+                  <img src="${gambar}" alt="${judul}" class="w-full h-48 object-cover">
+                  <div class="p-6 flex-grow flex flex-col">
+                    <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">${kategori}</span>
+                    <h4 class="text-xl font-bold mt-2 mb-3 leading-tight">${judul}</h4>
+                    <p class="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow">${ringkasan}</p>
+                    <a href="#" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700 mt-auto">Baca selengkapnya &rarr;</a>
+                  </div>
+                </article>
+              `;
+            }
+          }
+        }
+
+        wadah.innerHTML = htmlArtikel;
+
+      } catch (error) {
+        console.error('Gagal memuat:', error);
+        wadah.innerHTML = '<p class="text-center col-span-full text-red-500 py-10">Gagal memuat artikel dari server.</p>';
+      }
+    }
+
+    // Menjalankan mesin secara otomatis saat web dibuka
+    document.addEventListener('DOMContentLoaded', muatArtikel);
+  </script>
+  
 </body>
 </html>
