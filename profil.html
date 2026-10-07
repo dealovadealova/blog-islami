@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Owner - Catatan Irkham</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- NAVBAR MENU UTAMA -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 py-4 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 flex justify-center gap-2 md:gap-6">
+      
+      <!-- Tombol Menu: Beranda -->
+      <a href="index.html" class="px-3 py-2 md:px-5 md:py-2.5 bg-white text-slate-600 text-sm md:text-base font-semibold border border-slate-200 shadow-sm rounded-xl hover:bg-emerald-50 hover:text-emerald-600 hover:shadow-md hover:border-emerald-400 transition-all">
+        Beranda
+      </a>
+
+      <!-- Tombol Menu: Profil Owner (Menyala Hijau karena sedang di halaman ini) -->
+      <a href="profil.html" class="px-3 py-2 md:px-5 md:py-2.5 bg-emerald-50 text-emerald-700 text-sm md:text-base font-semibold border border-emerald-200 shadow-sm rounded-xl hover:shadow-md hover:border-emerald-400 transition-all">
+        Profil Owner
+      </a>
+
+      <!-- Tombol Menu: Artikel (Dropdown) -->
+      <div class="relative group">
+        <button class="px-3 py-2 md:px-5 md:py-2.5 bg-white text-slate-600 text-sm md:text-base font-semibold border border-slate-200 shadow-sm rounded-xl hover:bg-emerald-50 hover:text-emerald-600 hover:shadow-md hover:border-emerald-400 transition-all flex items-center gap-1">
+          Artikel
+          <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        
+        <div class="absolute left-0 mt-2 w-44 bg-white border border-slate-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+          <ul class="py-1 text-sm text-slate-600 font-medium">
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Akhlak</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Motivasi</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Inspirasi</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Kisah</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Renungan</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Hikmah</a></li>
+            <li><a href="#" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600">True Story</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </nav>
+
+  <!-- KARTU IDENTITAS OWNER -->
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center md:items-start gap-6">
+      
+      <!-- Foto Profil (Pastikan nama filenya profil.jpg) -->
+      <div class="flex-shrink-0">
+        <img src="profil.jpg" alt="Mas Irkham" class="w-20 h-20 md:w-28 md:h-28 object-cover rounded-full shadow-md border-2 border-emerald-50">
+      </div>
+      
+      <!-- Teks Identitas -->
+      <div class="text-center md:text-left flex-1 mt-2 md:mt-0">
+        <h1 class="text-2xl md:text-3xl font-bold text-slate-800">Mas Irkham</h1>
+        
+        <!-- Gelar Owner -->
+        <p class="text-emerald-600 font-semibold text-sm md:text-base mt-1 mb-4 inline-block bg-emerald-50 px-3 py-1 rounded-lg">
+          Founder & Pengasuh Blog
+        </p>
+        
+        <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+          Selamat datang di ruang profil saya. Halaman ini adalah tempat saya berbagi sedikit tentang perjalanan, visi, dan harapan di balik layar blog kajian ini.
+        </p>
+      </div>
+      
+    </div>
+  </main>
+
+</body>
+</html>
