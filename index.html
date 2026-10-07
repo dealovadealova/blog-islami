@@ -149,31 +149,32 @@
             const fileRes = await fetch(file.download_url);
             const teks = await fileRes.text();
 
-            // 3. Memisahkan Frontmatter (YAML) dan isi tulisan menggunakan Regex
+            // 3. Memisahkan Frontmatter (YAML) dan isi tulisan
             const pembatas = teks.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-            let kategori = "Tanpa Kategori";
-            if (pembatas && pembatas[1]) {
-              const ambilKategori = pembatas[1].match(/kategori:\s*['"]?(.*?)['"]?(\n|$)/);
-              if (ambilKategori) {
-                kategori = ambilKategori[1];
-              }
-            }
             
             if (pembatas) {
-              const pengaturan = jsyaml.load(pembatas[1]); 
-              
-              const judul = pengaturan.title || 'Tanpa Judul';
-              const kategori = pengaturan.category || 'Kajian';
-              const ringkasan = pengaturan.summary || 'Baca selengkapnya...';
-              // Jika Anda tidak mengunggah gambar, otomatis pakai gambar default
-              const gambar = pengaturan.thumbnail || 'https://images.pexels.com/photos/8164382/pexels-photo-8164382.jpeg?auto=compress&cs=tinysrgb&w=800';
+              const info = pembatas[1]; 
+
+              // Menangkap data dari CMS dengan aman
+              const ambilJudul = info.match(/title:\s*['"]?(.*?)['"]?(\n|$)/);
+              let judul = ambilJudul ? ambilJudul[1] : 'Tanpa Judul';
+
+              const ambilGambar = info.match(/thumbnail:\s*['"]?(.*?)['"]?(\n|$)/) || info.match(/gambar:\s*['"]?(.*?)['"]?(\n|$)/) \vert{}\vert{} info.match(/image:\s*['"]?(.*?)['"]?(\n\vert{}$)/);
+              let gambar = ambilGambar ? ambilGambar[1] : 'profil.jpg';
+
+              const ambilRingkasan = info.match(/description:\s*['"]?(.*?)['"]?(\n|$)/) \vert{}\vert{} info.match(/ringkasan:\s*['"]?(.*?)['"]?(\n\vert{}$)/);
+              let ringkasan = ambilRingkasan ? ambilRingkasan[1] : 'Klik untuk membaca selengkapnya...';
+
+              // Penangkap Kategori yang baru
+              const ambilKategori = info.match(/kategori:\s*['"]?(.*?)['"]?(\n|$)/);
+              let kategori = ambilKategori ? ambilKategori[1] : 'Tanpa Kategori';
 
               // 4. Mencetak kartu artikel
               htmlArtikel += `
                 <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
                   <img src="${gambar}" alt="${judul}" class="w-full h-48 object-cover">
                   <div class="p-6 flex-grow flex flex-col">
-                    <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">${artikel.kategori || 'Tanpa Kategori'}</span>
+                    <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">${kategori}</span>
                     <h4 class="text-xl font-bold mt-2 mb-3 leading-tight">${judul}</h4>
                     <p class="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow">${ringkasan}</p>
                     <a href="artikel.html?file=${file.name}" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700 mt-auto">Baca selengkapnya &rarr;</a>
