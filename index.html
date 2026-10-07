@@ -25,18 +25,40 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
 
+ <!-- ========================================== -->
+  <!-- 1. NAVBAR ELEGAN MENU GESER (GLASSMORPHISM)-->
   <!-- ========================================== -->
-  <!-- 1. NAVBAR ELEGAN (GLASSMORPHISM)           -->
-  <!-- ========================================== -->
-  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
-    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <!-- Kotak Logo Inisial -->
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg shadow-emerald-500/30">
-          I
-        </div>
-        <span class="text-xl font-bold text-slate-800 tracking-tight">Catatan Irkham</span>
-      </div>
+  <!-- Tambahan style kecil agar garis scroll hilang di HP (biar lebih estetik) -->
+  <style>
+    .menu-geser::-webkit-scrollbar { display: none; }
+    .menu-geser { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 py-4">
+      <ul class="flex items-center menu-geser overflow-x-auto whitespace-nowrap gap-6 text-sm font-semibold text-slate-600 md:justify-center">
+        <li>
+          <a href="index.html" class="text-emerald-600 border-b-2 border-emerald-600 pb-1">Beranda</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">Profil</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">Artikel</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">Biografi</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">Inspiratif</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">Hikmah</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-emerald-500 transition-colors pb-1">True Story</a>
+        </li>
+      </ul>
     </div>
   </nav>
 
