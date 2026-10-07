@@ -14,7 +14,10 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Kategori", name: "category", widget: "string"}
+      - label: "Kategori"
+        name: "kategori"
+        widget: "select"
+        options: ["Akhlak", "Motivasi", "Inspirasi", "Kisah", "Renungan", "Hikmah", "True Story"]
       - {label: "Tanggal", name: "date", widget: "datetime"}
       - {label: "Gambar Ilustrasi", name: "thumbnail", widget: "image", required: false}
       - {label: "Ringkasan", name: "summary", widget: "text"}
