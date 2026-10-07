@@ -25,38 +25,63 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-  <!-- Navigasi Atas -->
-  <nav class="bg-emerald-600 text-white shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold tracking-wide">Blog Islami</h1>
-      <!-- Tombol ini memudahkan Anda masuk ke ruang redaksi kapan saja -->
-      <a href="/admin/" class="bg-emerald-500 hover:bg-emerald-400 px-4 py-2 rounded-lg text-sm font-medium transition">Ruang Redaksi</a>
+  <!-- ========================================== -->
+  <!-- 1. NAVBAR ELEGAN (GLASSMORPHISM)           -->
+  <!-- ========================================== -->
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <!-- Kotak Logo Inisial -->
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg shadow-emerald-500/30">
+          I
+        </div>
+        <span class="text-xl font-bold text-slate-800 tracking-tight">Catatan Irkham</span>
+      </div>
     </div>
   </nav>
 
-  <!-- Bagian Hero / Sambutan -->
-  <header class="bg-white shadow-sm mb-12 border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 py-16 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
-      <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-        Selamat datang di catatan perjalanan dan kajian islami. Semoga tulisan di sini bisa menjadi pengingat, penyejuk hati, dan membawa keberkahan untuk kita semua.
-      </p>
-    </div>
-  </header>
-<!-- Bagian Profil Penulis -->
-  <section class="max-w-6xl mx-auto px-4 mb-12">
-    <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 hover:shadow-md transition-shadow">
-      <!-- Pastikan nama file foto di bawah ini sama dengan yang Anda unggah -->
-      <img src="profil.png" alt="Foto Mas Irkham" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md border-4 border-emerald-50 flex-shrink-0">
+  <header class="max-w-4xl mx-auto px-4 py-8 md:py-12">
+    <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-[2rem] p-8 md:p-12 border border-emerald-100/50 shadow-sm relative overflow-hidden">
       
-      <div>
-        <h3 class="text-xl font-bold text-slate-800 mb-2">Tentang Penulis</h3>
-        <p class="text-slate-600 leading-relaxed">
-          Assalamu’alaikum. Saya Mas Irkham, berdomisili di Banyubiru, Jawa Tengah. Blog ini adalah ruang kecil saya untuk berbagi catatan perjalanan, ringkasan kajian islami, dan pengingat untuk diri sendiri. Semoga tulisan-tulisan sederhana di sini bisa membawa pelajaran, kesejukan, manfaat, dan keberkahan bagi siapa saja yang membacanya serta semoga menjadi amal jariyah bagi penulis.
+      <!-- Hiasan Latar Belakang (Estetika Abstrak Lembut) -->
+      <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40"></div>
+      <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40"></div>
+
+      <div class="relative z-10 flex flex-col items-center text-center">
+        
+        <!-- Foto Profil (Bisa diganti dengan foto jenengan) -->
+        <div class="w-24 h-24 md:w-32 md:h-32 bg-white p-1.5 rounded-full shadow-md mb-6 relative">
+          <!-- Kita gunakan icon.png jenengan sebagai foto profil sementara -->
+          <img src="icon.png" alt="Mas Irkham" class="w-full h-full object-cover rounded-full">
+          <!-- Titik hijau tanda online/aktif -->
+          <div class="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-4 border-white rounded-full"></div>
+        </div>
+        
+        <!-- Label Salam -->
+        <span class="inline-block px-5 py-1.5 rounded-full bg-white text-emerald-600 text-sm font-semibold tracking-wide shadow-sm mb-5 border border-emerald-50">
+          Assalamu'alaikum Warahmatullahi Wabarakatuh
+        </span>
+        
+        <!-- Judul Utama -->
+        <h1 class="text-3xl md:text-5xl font-extrabold text-slate-800 mb-4 tracking-tight leading-tight">
+          Selamat Datang di <br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Blog Kajian Islami</span>
+        </h1>
+        
+        <!-- Deskripsi Bio -->
+        <p class="text-slate-600 md:text-lg max-w-2xl mx-auto leading-relaxed mb-6 font-light">
+          Mencatat jejak kebaikan, berbagi hikmah, dan menebar inspirasi. Dikelola oleh <strong>Mas Irkham</strong>, sebagai pengingat diri dan wadah silaturahmi.
         </p>
+
+        <!-- Info Lokasi -->
+        <div class="flex items-center justify-center gap-2 text-slate-500 text-sm font-medium bg-white/60 px-4 py-2 rounded-xl">
+          <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          Banyubiru, Kab. Semarang
+        </div>
+        
       </div>
     </div>
-  </section>
+  </header>
   
   <!-- Area Daftar Artikel -->
   <main class="max-w-6xl mx-auto px-4 mb-16">
