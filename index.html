@@ -151,6 +151,13 @@
 
             // 3. Memisahkan Frontmatter (YAML) dan isi tulisan menggunakan Regex
             const pembatas = teks.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+            let kategori = "Tanpa Kategori";
+            if (pembatas && pembatas[1]) {
+              const ambilKategori = pembatas[1].match(/kategori:\s*['"]?(.*?)['"]?(\n|$)/);
+              if (ambilKategori) {
+                kategori = ambilKategori[1];
+              }
+            }
             
             if (pembatas) {
               const pengaturan = jsyaml.load(pembatas[1]); 
