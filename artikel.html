@@ -263,5 +263,17 @@
     // Mulai pembacaan artikel
     document.addEventListener('DOMContentLoaded', muatIsiArtikel);
   </script>
+<!-- ========================================== -->
+  <!-- MESIN PWA (PEMICU TOMBOL INSTALL)          -->
+  <!-- ========================================== -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('Mesin PWA Sukses Menyala!', reg.scope))
+          .catch(err => console.log('Mesin PWA Gagal Menyala:', err));
+      });
+    }
+  </script>
 </body>
 </html>
