@@ -6,30 +6,55 @@
   <title>Catatan Irkham - Beranda</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- CSS KHUSUS TEKS BERJALAN TANPA JEDA -->
+  <style>
+    .marquee-wrapper {
+      display: flex;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+    }
+    .marquee-content {
+      display: flex;
+      animation: jalan 25s linear infinite;
+    }
+    .marquee-content:hover {
+      animation-play-state: paused; /* Berhenti saat disentuh agar mudah dibaca */
+    }
+    .marquee-content span {
+      padding-right: 4rem; /* Jarak antar pengulangan kalimat */
+    }
+    @keyframes jalan {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
   <!-- ========================================== -->
-  <!-- 1. NAVBAR (FOTO PROFIL, JAM LIVE & MENU)   -->
+  <!-- 1. NAVBAR (SIMETRIS DI HP & PC)            -->
   <!-- ========================================== -->
   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
-    <div class="max-w-4xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3">
+    <!-- Di HP akan susun bawah (flex-col), di PC susun samping (md:flex-row) -->
+    <div class="max-w-4xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
       
-      <!-- Kiri: Foto, Jam, & Pasaran Jawa -->
-      <div class="flex items-center gap-3">
+      <!-- Kiri/Atas: Foto, Jam, & Pasaran -->
+      <div class="flex items-center justify-center md:justify-start gap-3 w-full md:w-auto">
         <img src="profil.png" alt="Mas Irkham" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-emerald-500 shadow-sm">
-        <div class="flex flex-col">
+        <div class="flex flex-col text-center md:text-left">
           <span id="jam-digital" class="text-base md:text-lg font-bold text-slate-800 leading-none font-mono tracking-tight">00:00:00 WIB</span>
           <span id="tanggal-jawa" class="text-xs md:text-sm text-emerald-600 font-semibold mt-1">Memuat tanggal...</span>
         </div>
       </div>
       
-      <!-- Kanan: Menu Navigasi -->
-      <div class="flex items-center gap-2">
-        <a href="index.html" class="px-3 py-2 bg-emerald-50 text-emerald-700 text-sm md:text-base font-semibold border border-emerald-200 shadow-sm rounded-xl hover:bg-emerald-100 transition-all hidden md:block">
+      <!-- Kanan/Bawah: Menu Navigasi (Sekarang Muncul Semua di HP) -->
+      <div class="flex items-center justify-center gap-2 w-full md:w-auto">
+        <a href="index.html" class="px-3 py-2 bg-emerald-50 text-emerald-700 text-sm md:text-base font-semibold border border-emerald-200 shadow-sm rounded-xl hover:bg-emerald-100 transition-all">
           Beranda
         </a>
-        <a href="profil.html" class="px-3 py-2 bg-white text-slate-600 text-sm md:text-base font-semibold border border-slate-200 shadow-sm rounded-xl hover:bg-emerald-50 hover:text-emerald-600 transition-all hidden md:block">
+        <a href="profil.html" class="px-3 py-2 bg-white text-slate-600 text-sm md:text-base font-semibold border border-slate-200 shadow-sm rounded-xl hover:bg-emerald-50 hover:text-emerald-600 transition-all">
           Profil
         </a>
 
@@ -41,7 +66,7 @@
           </button>
           
           <div class="absolute right-0 mt-2 w-44 bg-white border border-slate-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top -translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
-            <ul class="py-1 text-sm text-slate-600 font-medium">
+            <ul class="py-1 text-sm text-slate-600 font-medium text-left">
               <li><a href="index.html?kategori=Akhlak" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Akhlak</a></li>
               <li><a href="index.html?kategori=Motivasi" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Motivasi</a></li>
               <li><a href="index.html?kategori=Inspirasi" class="block px-4 py-2.5 hover:bg-emerald-50 hover:text-emerald-600 border-b border-slate-50">Inspirasi</a></li>
@@ -58,34 +83,31 @@
   </nav>
 
   <!-- ========================================== -->
-  <!-- 2. TEKS BERJALAN (INSPIRASI HARIAN)        -->
+  <!-- 2. TEKS BERJALAN NYAMBUNG TERUS            -->
   <!-- ========================================== -->
-  <div class="bg-emerald-600 text-emerald-50 text-sm shadow-inner overflow-hidden flex items-center">
-    <span class="font-bold whitespace-nowrap bg-emerald-700 px-4 py-2 text-xs uppercase tracking-wider z-10 shadow-md">
+  <div class="bg-emerald-600 text-emerald-50 text-sm shadow-inner flex items-center relative overflow-hidden">
+    <div class="font-bold bg-emerald-700 px-4 py-2 text-xs uppercase tracking-wider z-10 shadow-md relative flex-shrink-0">
       Inspirasi
-    </span>
-    <marquee id="teks-inspirasi" class="font-medium whitespace-nowrap pt-1 pb-1" scrollamount="5">
-      Mencari inspirasi hari ini...
-    </marquee>
+    </div>
+    <div class="marquee-wrapper">
+      <div class="marquee-content" id="wadah-inspirasi">
+        <!-- Teks akan dimasukkan oleh JavaScript -->
+      </div>
+    </div>
   </div>
 
   <!-- ========================================== -->
-  <!-- 3. KARTU SAMBUTAN (INTERAKTIF)             -->
+  <!-- 3. KARTU SAMBUTAN INTERAKTIF               -->
   <!-- ========================================== -->
   <header class="max-w-4xl mx-auto px-4 py-8">
     <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-1 shadow-lg">
       <div class="bg-white/95 backdrop-blur-sm rounded-[22px] p-8 md:p-10 text-center">
-        <!-- Tulisan Assalamu'alaikum (Font Kaligrafi Modern) -->
         <h1 class="text-4xl md:text-5xl text-emerald-600 mb-4" style="font-family: 'Amiri', serif;">
           Assalamu'alaikum
         </h1>
-        
-        <!-- Sapaan Waktu Otomatis -->
         <h2 id="teks-sapaan" class="text-xl md:text-2xl font-bold text-slate-800 mb-4">
           Selamat Datang, Kak!
         </h2>
-        
-        <!-- Kalimat Ajakan -->
         <p class="text-slate-600 max-w-2xl mx-auto leading-relaxed text-sm md:text-base font-medium">
           Selamat datang di <span class="font-bold text-emerald-600">Catatan Irkham</span>. Selamat menikmati dan membaca tulisan saya, silakan pilih sesuai dengan panggilan hati. Semoga hari ini Kakak senantiasa mendapatkan ilmu yang bermanfaat dan inspirasi yang memberkahi.
         </p>
@@ -125,14 +147,13 @@
   </footer>
 
   <!-- ========================================== -->
-  <!-- 6. JAVASCRIPT: JAM, PASARAN, SAPAAN, API   -->
+  <!-- 6. JAVASCRIPT MESIN                        -->
   <!-- ========================================== -->
   <script>
-    // --- A. SISTEM WAKTU, PASARAN & SAPAAN ---
+    // --- SISTEM WAKTU & PASARAN ---
     function jalankanSistemWaktu() {
       const now = new Date();
       
-      // 1. Logika Sapaan
       const jamSekarang = now.getHours();
       let teksSapa = 'Malam';
       if (jamSekarang >= 3 && jamSekarang < 10) teksSapa = 'Pagi';
@@ -140,17 +161,14 @@
       else if (jamSekarang >= 15 && jamSekarang < 18) teksSapa = 'Sore';
       document.getElementById('teks-sapaan').innerText = `Selamat ${teksSapa}, Kak!`;
 
-      // 2. Logika Jam Digital
       const jam = String(now.getHours()).padStart(2, '0');
       const menit = String(now.getMinutes()).padStart(2, '0');
       const detik = String(now.getSeconds()).padStart(2, '0');
       document.getElementById('jam-digital').innerText = `${jam}:${menit}:${detik} WIB`;
 
-      // 3. Logika Tanggal & Pasaran Jawa (Akurat)
       const namaHari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'][now.getDay()];
       const namaBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][now.getMonth()];
       
-      // Rumus Pasaran (Referensi: 1 Jan 2021 adalah Jumat Pahing)
       const refDate = new Date(2021, 0, 1);
       const todayDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
       const bedaHari = Math.floor((todayDate - refDate) / (1000 * 3600 * 24));
@@ -162,11 +180,10 @@
       document.getElementById('tanggal-jawa').innerText = `${namaHari} ${pasaranArr[indeksPasaran]},${now.getDate()} ${namaBulan}${now.getFullYear()}`;
     }
     
-    // Jalankan jam setiap 1 detik
     setInterval(jalankanSistemWaktu, 1000);
     jalankanSistemWaktu();
 
-    // --- B. SISTEM KATA MUTIARA HARIAN ---
+    // --- SISTEM TEKS BERJALAN TANPA JEDA ---
     const daftarInspirasi = [
       "Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya.",
       "Barangsiapa bersungguh-sungguh, sesungguhnya kesungguhannya itu adalah untuk dirinya sendiri.",
@@ -176,12 +193,16 @@
       "Maka nikmat Tuhan kamu yang manakah yang kamu dustakan?",
       "Jadikanlah sabar dan shalat sebagai penolongmu dalam setiap langkah."
     ];
-    // Ganti inspirasi berdasarkan urutan hari (0-6)
+    
     const hariIni = new Date().getDay();
-    document.getElementById('teks-inspirasi').innerText = "✨ " + daftarInspirasi[hariIni] + " ✨";
+    const kalimat = "✨ " + daftarInspirasi[hariIni] + " ✨";
+    
+    // Teks digandakan 4 kali agar perputarannya mulus dan menyambung terus
+    const teksNyambung = `<span>${kalimat}</span><span>${kalimat}</span><span>${kalimat}</span><span>${kalimat}</span>`;
+    document.getElementById('wadah-inspirasi').innerHTML = teksNyambung;
 
 
-    // --- C. SISTEM PEMBACA ARTIKEL GITHUB ---
+    // --- SISTEM PEMBACA ARTIKEL GITHUB ---
     const API_URL = 'https://api.github.com/repos/dealovadealova/blog-islami/contents/artikel';
 
     async function muatArtikel() {
