@@ -68,11 +68,9 @@
   <!-- MESIN JAVASCRIPT + DATABASE FIREBASE       -->
   <!-- ========================================== -->
   <script type="module">
-    // Mengimpor alat Firebase
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
     import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-    // Konfigurasi API Firebase milik Mas Irkham
     const firebaseConfig = {
       apiKey: "AIzaSyCuyAt8PRNr7JhMEoZTXi9YqjQVocYwY_w",
       authDomain: "irkham1.firebaseapp.com",
@@ -82,7 +80,6 @@
       appId: "1:761381762698:web:a3d61cd79c3e16edd39f73"
     };
 
-    // Mengaktifkan Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
@@ -97,13 +94,12 @@
         return;
       }
 
-      window.namaFileAktif = fileName; // Menyimpan nama file untuk fungsi Like nanti
+      window.namaFileAktif = fileName;
 
       try {
-        // Mengambil isi tulisan dari GitHub (Anti-Cache agar selalu segar)
-        const url = `https://raw.githubusercontent.com/dealovadealova/blog-islami/main/artikel/${fileName}?t=` + new Date().getTime();
+        // 1. MENGAMBIL ARTIKEL (Gembok Anti-Cache dicopot agar lebih ngebut)
+        const url = `https://raw.githubusercontent.com/dealovadealova/blog-islami/main/artikel/${fileName}`;
         const res = await fetch(url);
-        
         if (!res.ok) throw new Error('Gagal mengambil file dari GitHub');
         
         const teks = await res.text();
@@ -116,47 +112,24 @@
           
           document.title = pengaturan.title + " - Blog Islami";
           const penulis = pengaturan.author || 'Mas Irkham';
+          const kategori = pengaturan.kategori || pengaturan.category || 'Kajian';
           
           let gambarHTML = '';
           if (pengaturan.thumbnail) {
-             gambarHTML = `<img src="${pengaturan.thumbnail}" alt="${pengaturan.title}" class="w-full h-64 md:h-96 object-cover rounded-2xl shadow-sm mb-8">`;
+             gambarHTML = `<img src="${pengaturan.thumbnail}" alt="${pengaturan.title}" class="w-full h-48 md:h-96 object-cover rounded-2xl shadow-sm mb-8">`;
           }
 
-          // ===== SISTEM DATABASE FIREBASE (Telah Dibaca & Suka) =====
-          let angkaPembaca = 1;
-          let jumlahLike = 0;
-          const refDokumen = doc(db, "artikel", fileName);
-          
-          try {
-            const dataFirebase = await getDoc(refDokumen);
-            if (dataFirebase.exists()) {
-              // Jika artikel sudah ada di database, tambahkan 1 pembaca
-              await updateDoc(refDokumen, { dibaca: increment(1) });
-              angkaPembaca = dataFirebase.data().dibaca + 1;
-              jumlahLike = dataFirebase.data().suka || 0;
-            } else {
-              // Jika ini artikel baru, buatkan tempatnya di database
-              await setDoc(refDokumen, { dibaca: 1, suka: 0 });
-            }
-          } catch (dbError) {
-            console.error("Gagal terhubung ke Database:", dbError);
-            angkaPembaca = "-";
-            jumlahLike = 0;
-          }
-          // ==========================================================
-
-          // Mengecek apakah HP pengunjung ini sudah pernah menekan Like
           const sudahLike = localStorage.getItem('suka_' + fileName) === 'ya';
           const warnaTombol = sudahLike ? 'border-pink-500 text-pink-500' : 'border-slate-200 text-slate-600';
           const warnaIkon = sudahLike ? 'currentColor' : 'none';
 
-          // Menampilkan Isi Artikel & Tombol Share ke Layar
+          // 2. TAMPILKAN ARTIKEL SECEPATNYA (Angka Firebase pakai ikon loading dulu)
           wadah.innerHTML = `
-            <article class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12 mb-8">
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12 mb-8 animate-fade-in">
               ${gambarHTML}
               
               <div class="mb-8 border-b border-slate-100 pb-8 text-center">
-                <span class="inline-block bg-emerald-100 text-emerald-700 font-bold px-3 py-1 rounded-full text-sm uppercase tracking-wider mb-4">${pengaturan.kategori || pengaturan.category || 'Kajian'}</span>
+                <span class="inline-block bg-emerald-100 text-emerald-700 font-bold px-3 py-1 rounded-full text-sm uppercase tracking-wider mb-4">${kategori}</span>
                 <h1 class="text-3xl md:text-5xl font-bold text-slate-800 leading-tight mb-6">${pengaturan.title}</h1>
                 
                 <div class="flex flex-wrap justify-center items-center gap-4 text-slate-500 text-sm font-medium">
@@ -164,30 +137,29 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     ${penulis}
                   </span>
-                  <span class="flex items-center gap-1">
-                    <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                    ${angkaPembaca}x dibaca
+                  <span class="flex items-center gap-1 text-emerald-600">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    <span id="tampilan-angka-baca" class="animate-pulse">...</span>x dibaca
                   </span>
                 </div>
               </div>
               
-              <div class="prose prose-slate prose-emerald max-w-none md:text-lg leading-relaxed mb-12">
+              <div class="prose prose-slate prose-emerald max-w-none text-[15px] md:text-lg leading-relaxed mb-12 text-justify">
                 ${isiHTML}
               </div>
 
-              <!-- Bagian Tombol Interaksi -->
               <div class="flex flex-col md:flex-row justify-between items-center py-6 border-t border-slate-100 gap-6 mt-8">
                 <button id="btn-like" onclick="klikLike()" class="flex items-center gap-2 px-6 py-2 rounded-full border-2 ${warnaTombol} font-semibold hover:border-pink-500 hover:text-pink-500 transition duration-300">
                   <svg id="icon-like" class="w-6 h-6" fill="${warnaIkon}" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                  Suka (<span id="angka-like">${jumlahLike}</span>)
+                  Suka (<span id="angka-like" class="animate-pulse">...</span>)
                 </button>
 
                 <div class="flex items-center gap-5">
                   <span class="text-slate-500 font-medium hidden md:inline">Bagikan:</span>
-                  <a href="javascript:bagikanWA()" class="text-green-500 hover:text-green-600 transition transform hover:scale-110" title="Share ke WhatsApp">
+                  <a href="javascript:bagikanWA()" class="text-green-500 hover:text-green-600 transition transform hover:scale-110">
                     <svg class="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
                   </a>
-                  <a href="javascript:salinLink()" class="text-slate-400 hover:text-slate-600 transition transform hover:scale-110" title="Copy Link">
+                  <a href="javascript:salinLink()" class="text-slate-400 hover:text-slate-600 transition transform hover:scale-110">
                     <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                   </a>
                 </div>
@@ -195,7 +167,6 @@
             </article>
           `;
 
-          // Memunculkan Disqus
           wadahKomentar.classList.remove('hidden');
           window.disqus_config = function () {
               this.page.url = window.location.href;  
@@ -205,6 +176,34 @@
           s.src = 'https://irkham.disqus.com/embed.js';
           s.setAttribute('data-timestamp', +new Date());
           (d.head || d.body).appendChild(s);
+
+          // 3. AMBIL DATA FIREBASE DI LATAR BELAKANG (Agar tidak menghambat artikel tampil)
+          setTimeout(async () => {
+            let angkaPembaca = 1;
+            let jumlahLike = 0;
+            const refDokumen = doc(db, "artikel", fileName);
+            
+            try {
+              const dataFirebase = await getDoc(refDokumen);
+              if (dataFirebase.exists()) {
+                await updateDoc(refDokumen, { dibaca: increment(1) });
+                angkaPembaca = dataFirebase.data().dibaca + 1;
+                jumlahLike = dataFirebase.data().suka || 0;
+              } else {
+                await setDoc(refDokumen, { dibaca: 1, suka: 0 });
+              }
+            } catch (dbError) {
+              console.error("Gagal Firebase:", dbError);
+              angkaPembaca = "1";
+            }
+
+            document.getElementById('tampilan-angka-baca').innerText = angkaPembaca;
+            document.getElementById('tampilan-angka-baca').classList.remove('animate-pulse');
+            
+            document.getElementById('angka-like').innerText = jumlahLike;
+            document.getElementById('angka-like').classList.remove('animate-pulse');
+            window.jumlahLikeAktif = jumlahLike; 
+          }, 100);
 
         }
       } catch (error) {
@@ -218,7 +217,6 @@
       const fileName = window.namaFileAktif;
       if (!fileName) return;
 
-      // Cek apakah HP ini sudah pernah me-like artikel ini
       if (localStorage.getItem('suka_' + fileName) === 'ya') {
         alert("Terima kasih, Anda sudah menyukai artikel ini!");
         return;
@@ -228,26 +226,22 @@
       const icon = document.getElementById('icon-like');
       const angka = document.getElementById('angka-like');
       
-      // Update visual seketika agar terasa cepat
-      let jumlahSekarang = parseInt(angka.innerText) || 0;
+      let jumlahSekarang = window.jumlahLikeAktif || parseInt(angka.innerText) || 0;
       angka.innerText = jumlahSekarang + 1;
       icon.setAttribute('fill', 'currentColor');
       btn.classList.add('border-pink-500', 'text-pink-500');
       btn.classList.remove('border-slate-200', 'text-slate-600');
       
-      // Simpan jejak di HP pengunjung agar tidak spam klik
       localStorage.setItem('suka_' + fileName, 'ya');
 
-      // Kirim angka tambahan ke Firebase secara senyap
       try {
         const refDokumen = doc(db, "artikel", fileName);
         await updateDoc(refDokumen, { suka: increment(1) });
       } catch (e) {
-        console.error("Gagal mengirim Suka ke Firebase", e);
+        console.error("Gagal Suka Firebase", e);
       }
     };
 
-    // Fungsi Share Social Media
     window.bagikanWA = function() {
       const judul = document.title;
       const url = window.location.href;
@@ -260,7 +254,6 @@
       });
     };
 
-    // Mulai pembacaan artikel
     document.addEventListener('DOMContentLoaded', muatIsiArtikel);
   </script>
 <!-- ========================================== -->
