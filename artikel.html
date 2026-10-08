@@ -7,8 +7,8 @@
   
   <!-- KODE PWA -->
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/jpeg" href="icon.jpg">
-  <link rel="apple-touch-icon" href="icon.jpg">
+  <link rel="icon" type="image/png" href="profil.png">
+  <link rel="apple-touch-icon" href="profil.png">
   <meta name="theme-color" content="#059669">
   
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
@@ -17,34 +17,91 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style> body { font-family: 'Inter', sans-serif; } </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-  <nav class="bg-emerald-600 text-white shadow-md">
+  <nav class="bg-emerald-600 text-white shadow-md sticky top-0 z-50">
     <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold tracking-wide hover:text-emerald-200 transition">&larr; Kembali ke Beranda</a>
+      <a href="index.html" class="text-lg font-bold tracking-wide hover:text-emerald-200 transition flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Kembali ke Beranda
+      </a>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-4 py-12">
+  <main class="max-w-4xl mx-auto px-4 py-12 flex-grow w-full">
     <!-- Wadah Isi Tulisan -->
     <div id="konten-artikel">
-      <div class="text-center py-20">
-        <p class="text-slate-500 text-lg animate-pulse">Sedang memuat tulisan...</p>
+      <div class="text-center py-20 flex flex-col items-center justify-center">
+        <svg class="w-10 h-10 text-emerald-500 animate-spin mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+        <p class="text-slate-500 text-lg animate-pulse">Membuka lembaran artikel...</p>
       </div>
     </div>
 
-    <!-- Wadah Komentar Disqus (Awalnya disembunyikan sampai artikel selesai dimuat) -->
+    <!-- Wadah Komentar Disqus -->
     <div id="area-komentar" class="hidden bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12 mb-12 mt-8">
       <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">Kolom Diskusi</h3>
       <div id="disqus_thread"></div>
     </div>
   </main>
 
-  <footer class="bg-slate-900 text-slate-400 py-8 text-center mt-12">
-    <p class="text-sm">&copy; 2026 Blog Islami Mas Irkham. Dibuat dengan niat kebaikan.</p>
+  <!-- ========================================== -->
+  <!-- FOOTER PROFESIONAL                         -->
+  <!-- ========================================== -->
+  <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 mt-auto">
+    <div class="max-w-4xl mx-auto px-4 py-12 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mb-10">
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+            <span class="text-emerald-500">Catatan</span> Irkham
+          </h3>
+          <p class="text-sm leading-relaxed text-slate-400 pr-4">
+            Ruang berbagi hikmah, inspirasi, dan jejak langkah menuju kebaikan. Mari bersama-sama merefleksikan diri menjadi pribadi yang lebih baik.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-5 uppercase text-sm tracking-wider">Tautan Cepat</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="hover:text-emerald-400 hover:translate-x-1 transition-all inline-block">Beranda</a></li>
+            <li><a href="profil.html" class="hover:text-emerald-400 hover:translate-x-1 transition-all inline-block">Profil Owner</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-5 uppercase text-sm tracking-wider">Lokasi Basecamp</h4>
+          <div class="flex items-start gap-3 text-sm text-slate-400">
+            <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <p class="leading-relaxed">Banyubiru<br>Kabupaten Semarang<br>Jawa Tengah, Indonesia</p>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-slate-500 font-medium">&copy; 2026 Mas Irkham. Hak Cipta Dilindungi.</p>
+        <p class="text-xs text-slate-600 font-medium">Dikelola dengan Sveltia CMS</p>
+      </div>
+    </div>
   </footer>
 
-  <script>
+  <!-- ========================================== -->
+  <!-- MESIN JAVASCRIPT + DATABASE FIREBASE       -->
+  <!-- ========================================== -->
+  <script type="module">
+    // Mengimpor alat Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
+    // Konfigurasi API Firebase milik Mas Irkham
+    const firebaseConfig = {
+      apiKey: "AIzaSyCuyAt8PRNr7JhMEoZTXi9YqjQVocYwY_w",
+      authDomain: "irkham1.firebaseapp.com",
+      projectId: "irkham1",
+      storageBucket: "irkham1.firebasestorage.app",
+      messagingSenderId: "761381762698",
+      appId: "1:761381762698:web:a3d61cd79c3e16edd39f73"
+    };
+
+    // Mengaktifkan Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
     async function muatIsiArtikel() {
       const wadah = document.getElementById('konten-artikel');
       const wadahKomentar = document.getElementById('area-komentar');
@@ -52,15 +109,18 @@
       const fileName = params.get('file');
 
       if (!fileName) {
-        wadah.innerHTML = '<h2 class="text-2xl font-bold text-center text-red-500">Artikel tidak ditemukan.</h2>';
+        wadah.innerHTML = '<h2 class="text-2xl font-bold text-center text-red-500 py-10">Artikel tidak ditemukan.</h2>';
         return;
       }
 
+      window.namaFileAktif = fileName; // Menyimpan nama file untuk fungsi Like nanti
+
       try {
-        const url = `https://raw.githubusercontent.com/dealovadealova/blog-islami/main/artikel/${fileName}`;
+        // Mengambil isi tulisan dari GitHub (Anti-Cache agar selalu segar)
+        const url = `https://raw.githubusercontent.com/dealovadealova/blog-islami/main/artikel/${fileName}?t=` + new Date().getTime();
         const res = await fetch(url);
         
-        if (!res.ok) throw new Error('Gagal mengambil file');
+        if (!res.ok) throw new Error('Gagal mengambil file dari GitHub');
         
         const teks = await res.text();
         const pembatas = teks.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
@@ -72,20 +132,47 @@
           
           document.title = pengaturan.title + " - Blog Islami";
           const penulis = pengaturan.author || 'Mas Irkham';
-          const angkaPembaca = Math.floor(Math.random() * 200) + 50; 
-
+          
           let gambarHTML = '';
           if (pengaturan.thumbnail) {
              gambarHTML = `<img src="${pengaturan.thumbnail}" alt="${pengaturan.title}" class="w-full h-64 md:h-96 object-cover rounded-2xl shadow-sm mb-8">`;
           }
 
-          // 1. Menampilkan Isi Artikel & Tombol Share
+          // ===== SISTEM DATABASE FIREBASE (Telah Dibaca & Suka) =====
+          let angkaPembaca = 1;
+          let jumlahLike = 0;
+          const refDokumen = doc(db, "artikel", fileName);
+          
+          try {
+            const dataFirebase = await getDoc(refDokumen);
+            if (dataFirebase.exists()) {
+              // Jika artikel sudah ada di database, tambahkan 1 pembaca
+              await updateDoc(refDokumen, { dibaca: increment(1) });
+              angkaPembaca = dataFirebase.data().dibaca + 1;
+              jumlahLike = dataFirebase.data().suka || 0;
+            } else {
+              // Jika ini artikel baru, buatkan tempatnya di database
+              await setDoc(refDokumen, { dibaca: 1, suka: 0 });
+            }
+          } catch (dbError) {
+            console.error("Gagal terhubung ke Database:", dbError);
+            angkaPembaca = "-";
+            jumlahLike = 0;
+          }
+          // ==========================================================
+
+          // Mengecek apakah HP pengunjung ini sudah pernah menekan Like
+          const sudahLike = localStorage.getItem('suka_' + fileName) === 'ya';
+          const warnaTombol = sudahLike ? 'border-pink-500 text-pink-500' : 'border-slate-200 text-slate-600';
+          const warnaIkon = sudahLike ? 'currentColor' : 'none';
+
+          // Menampilkan Isi Artikel & Tombol Share ke Layar
           wadah.innerHTML = `
             <article class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-12 mb-8">
               ${gambarHTML}
               
               <div class="mb-8 border-b border-slate-100 pb-8 text-center">
-                <span class="inline-block bg-emerald-100 text-emerald-700 font-bold px-3 py-1 rounded-full text-sm uppercase tracking-wider mb-4">${pengaturan.category || 'Kajian'}</span>
+                <span class="inline-block bg-emerald-100 text-emerald-700 font-bold px-3 py-1 rounded-full text-sm uppercase tracking-wider mb-4">${pengaturan.kategori || pengaturan.category || 'Kajian'}</span>
                 <h1 class="text-3xl md:text-5xl font-bold text-slate-800 leading-tight mb-6">${pengaturan.title}</h1>
                 
                 <div class="flex flex-wrap justify-center items-center gap-4 text-slate-500 text-sm font-medium">
@@ -94,7 +181,7 @@
                     ${penulis}
                   </span>
                   <span class="flex items-center gap-1">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                     ${angkaPembaca}x dibaca
                   </span>
                 </div>
@@ -106,9 +193,9 @@
 
               <!-- Bagian Tombol Interaksi -->
               <div class="flex flex-col md:flex-row justify-between items-center py-6 border-t border-slate-100 gap-6 mt-8">
-                <button id="btn-like" onclick="klikLike()" class="flex items-center gap-2 px-6 py-2 rounded-full border-2 border-slate-200 text-slate-600 font-semibold hover:border-pink-500 hover:text-pink-500 transition duration-300">
-                  <svg id="icon-like" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                  Suka (<span id="angka-like">24</span>)
+                <button id="btn-like" onclick="klikLike()" class="flex items-center gap-2 px-6 py-2 rounded-full border-2 ${warnaTombol} font-semibold hover:border-pink-500 hover:text-pink-500 transition duration-300">
+                  <svg id="icon-like" class="w-6 h-6" fill="${warnaIkon}" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                  Suka (<span id="angka-like">${jumlahLike}</span>)
                 </button>
 
                 <div class="flex items-center gap-5">
@@ -124,54 +211,59 @@
             </article>
           `;
 
-          // 2. Memunculkan & Mengaktifkan Disqus
+          // Memunculkan Disqus
           wadahKomentar.classList.remove('hidden');
-          
           window.disqus_config = function () {
               this.page.url = window.location.href;  
               this.page.identifier = fileName; 
           };
-          
           const d = document, s = d.createElement('script');
-          // =====================================================================
-          // GANTI 'NAMA-SHORTNAME-ANDA' DI BAWAH INI DENGAN NAMA DARI DISQUS ANDA
-          // =====================================================================
           s.src = 'https://irkham.disqus.com/embed.js';
-          
           s.setAttribute('data-timestamp', +new Date());
           (d.head || d.body).appendChild(s);
 
         }
       } catch (error) {
         console.error(error);
-        wadah.innerHTML = '<h2 class="text-2xl font-bold text-center text-red-500">Gagal memuat artikel. Silakan coba lagi.</h2>';
+        wadah.innerHTML = '<h2 class="text-2xl font-bold text-center text-red-500 py-10">Gagal memuat artikel. Silakan coba lagi.</h2>';
       }
     }
 
-    // --- FUNGSI INTERAKSI INTERNET (TETAP AMAN) ---
-    
-    let disukai = false;
-    let jumlahLike = 24; 
-    window.klikLike = function() {
-      disukai = !disukai;
+    // Fungsi Klik Suka Terhubung Firebase
+    window.klikLike = async function() {
+      const fileName = window.namaFileAktif;
+      if (!fileName) return;
+
+      // Cek apakah HP ini sudah pernah me-like artikel ini
+      if (localStorage.getItem('suka_' + fileName) === 'ya') {
+        alert("Terima kasih, Anda sudah menyukai artikel ini!");
+        return;
+      }
+
       const btn = document.getElementById('btn-like');
       const icon = document.getElementById('icon-like');
       const angka = document.getElementById('angka-like');
       
-      if (disukai) {
-        jumlahLike++;
-        icon.setAttribute('fill', 'currentColor');
-        btn.classList.add('border-pink-500', 'text-pink-500');
-        btn.classList.remove('border-slate-200', 'text-slate-600');
-      } else {
-        jumlahLike--;
-        icon.setAttribute('fill', 'none');
-        btn.classList.remove('border-pink-500', 'text-pink-500');
-        btn.classList.add('border-slate-200', 'text-slate-600');
+      // Update visual seketika agar terasa cepat
+      let jumlahSekarang = parseInt(angka.innerText) || 0;
+      angka.innerText = jumlahSekarang + 1;
+      icon.setAttribute('fill', 'currentColor');
+      btn.classList.add('border-pink-500', 'text-pink-500');
+      btn.classList.remove('border-slate-200', 'text-slate-600');
+      
+      // Simpan jejak di HP pengunjung agar tidak spam klik
+      localStorage.setItem('suka_' + fileName, 'ya');
+
+      // Kirim angka tambahan ke Firebase secara senyap
+      try {
+        const refDokumen = doc(db, "artikel", fileName);
+        await updateDoc(refDokumen, { suka: increment(1) });
+      } catch (e) {
+        console.error("Gagal mengirim Suka ke Firebase", e);
       }
-      angka.innerText = jumlahLike;
     };
 
+    // Fungsi Share Social Media
     window.bagikanWA = function() {
       const judul = document.title;
       const url = window.location.href;
@@ -184,6 +276,7 @@
       });
     };
 
+    // Mulai pembacaan artikel
     document.addEventListener('DOMContentLoaded', muatIsiArtikel);
   </script>
 </body>
