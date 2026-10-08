@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil Owner - Blog Islami</title>
+  <title>Profil Owner - Catatan Irkham</title>
+  
+  <!-- ========================================== -->
+  <!-- KODE PEMANGGIL IKON TAB & PWA MUNCUL DISINI-->
+  <!-- ========================================== -->
+  <link rel="icon" href="profil.png" type="image/png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#059669">
+
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
@@ -58,16 +66,13 @@
   <!-- ========================================== -->
   <!-- 2. KONTEN PROFIL (GAYA BUKU BIOGRAFI)      -->
   <!-- ========================================== -->
-  <!-- px-2 menipiskan batas agar mekar ke tepi HP -->
   <main class="max-w-4xl mx-auto px-2 md:px-8 py-6 md:py-12 flex-grow w-full block">
     
     <div class="bg-white rounded-xl md:rounded-[22px] shadow-sm border border-slate-100 px-3 py-6 md:p-12 block">
       
-      <!-- text-justify membuat tulisan rata kiri-kanan rapi -->
       <div class="text-[14px] md:text-lg leading-relaxed text-justify text-slate-700 block">
         
         <!-- FOTO & NAMA MENGAMBANG DI KIRI -->
-        <!-- float-left adalah sihirnya, mt-1 mensejajarkan dengan huruf pertama -->
         <div class="float-left mr-3 md:mr-6 w-[110px] md:w-40 mt-1 mb-2">
           <img src="profil.png" alt="H. Irkham, SE" class="w-full h-auto object-cover rounded-xl shadow border-2 border-emerald-500 mb-1.5">
           <div class="text-center">
@@ -91,7 +96,6 @@
         
         <p class="font-medium text-slate-700 italic mt-5 md:mt-8">Salam kenal, selamat membaca, dan mari terus bertumbuh menjadi pribadi yang lebih baik bersama-sama!</p>
         
-        <!-- Penutup Float -->
         <div class="clear-both"></div>
       </div>
     </div>
@@ -121,7 +125,6 @@
   <script>
     function jalankanSistemWaktu() {
       const now = new Date();
-      
       const jam = String(now.getHours()).padStart(2, '0');
       const menit = String(now.getMinutes()).padStart(2, '0');
       const detik = String(now.getSeconds()).padStart(2, '0');
@@ -144,15 +147,16 @@
     setInterval(jalankanSistemWaktu, 1000);
     jalankanSistemWaktu();
   </script>
-<!-- ========================================== -->
-  <!-- MESIN PWA (PEMICU TOMBOL INSTALL)          -->
+
+  <!-- ========================================== -->
+  <!-- 5. MESIN PWA (PEMICU TOMBOL INSTALL)       -->
   <!-- ========================================== -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
           .then(reg => console.log('Mesin PWA Sukses Menyala!', reg.scope))
-          .catch(err => console.log('Mesin PWA Gagal Menyala:', err));
+          .catch(err => console.log('Mesin PWA Gagal:', err));
       });
     }
   </script>
