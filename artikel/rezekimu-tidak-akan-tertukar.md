@@ -21,6 +21,8 @@ Rezeki Datang dari Arah yang Tidak Disangka
 Allah berfirman:
 وَمَن يَتَّقِ ٱللَّهَ يَجْعَل لَّهُۥ مَخْرَجًا \* وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
 "Barangsiapa bertakwa kepada Allah, niscaya Dia akan memberinya jalan keluar, dan memberinya rezeki dari arah yang tidak disangka-sangka." (QS. At-Talaq: 2-3)
+
+
 Ayat ini mengajarkan bahwa jalan rezeki sering tidak terduga. Kadang datang dari peluang yang tidak kita rencanakan, dari orang yang tidak kita kenal, atau dari kemudahan yang tiba-tiba hadir ketika kita sedang sempit. Tugas kita adalah menjaga takwa dan terus berikhtiar dengan jujur.
 Hati yang Tenang Juga Bagian dari Rezeki
 Rasulullah ﷺ bersabda:
@@ -29,6 +31,7 @@ Rasulullah ﷺ bersabda:
 Dari sini kita belajar bahwa rezeki tidak selalu berbentuk uang. Kesehatan, keluarga yang harmonis, ilmu yang bermanfaat, dan hati yang qanaah (merasa cukup) juga merupakan rezeki yang besar. Orang yang sibuk mengukur rezekinya dengan harta orang lain biasanya tidak pernah merasa cukup.
 Amalan Sederhana untuk Melapangkan Rezeki
 Berikut beberapa amalan yang disebutkan dalam hadits shahih dan bisa dijalankan sehari-hari:
+
 1. Menyambung silaturahim
 مَنْ سَرَّهُ أَنْ يُبْسَطَ لَهُ فِي رِزْقِهِ، أَوْ يُنْسَأَ لَهُ فِي أَثَرِهِ، فَلْيَصِلْ رَحِمَهُ
 "Barangsiapa ingin dilapangkan rezekinya dan dipanjangkan umurnya, hendaklah ia menyambung silaturahim." (HR. Bukhari dan Muslim)
