@@ -11,7 +11,7 @@ Dalam panggung kehidupan, setiap manusia sibuk memperbanyak aktivitas. Namun, di
 
 1\. **Alkemis Spiritual: Mengubah Arang Menjadi Emas**
 
-Bayangkan Anda memiliki kekuatan untuk mengubah setiap hal biasa yang Anda lakukan setiap hari menjadi pahala yang mengalir tanpa henti. Di dalam Islam, kekuatan itu nyata dan disebut niat.
+Bayangkan Anda memiliki kekuatan untuk mengubah setiap hal biasa yang Anda lakukan setiap hari menjadi banyak pahala yang mengalir tanpa henti. Di dalam Islam, kekuatan itu nyata dan disebut niat.
 
 Niat berfungsi seperti alkemis spiritual. Ketika seorang muslim tidur dengan niat agar fisiknya kuat untuk beribadah besok hari, maka tidurnya dinilai sebagai ibadah. Ketika seseorang makan demi menjaga kesehatan untuk menafkahi keluarga, setiap suapannya bernilai pahala. Tanpa niat yang benar, aktivitas tersebut hanyalah sekadar rutinitas biologis biasa. Niatlah yang membedakan antara adat (kebiasaan) dan ibadah.
 
