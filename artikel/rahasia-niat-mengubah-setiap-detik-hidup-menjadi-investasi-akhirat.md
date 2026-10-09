@@ -17,7 +17,7 @@ Niat berfungsi seperti alkemis spiritual. Ketika seorang muslim tidur dengan nia
 
 2\. **Poros Diterimanya Amal (The Ultimate Filter)**
 
-Niat bukan sekadar pelengkap, melainkan fondasi utama. Rasulullah SAW menegaskan hal ini dalam hadits yang sangat populer   :
+Niat bukan sekadar pelengkap, melainkan fondasi utama. Rasulullah SAW menegaskan hal ini dalam hadits yang sangat populer:
 
 > _"Sesungguhnya setiap amalan itu bergantung pada niatnya..."_ (HR. Bukhari & Muslim)
 
