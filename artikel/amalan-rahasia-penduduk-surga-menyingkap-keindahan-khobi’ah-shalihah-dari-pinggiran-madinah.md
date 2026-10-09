@@ -1,5 +1,5 @@
 ---
-title: Amalan Rahasia Penduduk Surga
+title: Amalan Rahasia Penduduk Surga Yang Belum Diketahui
 kategori: Kisah
 date: 2026-10-07T16:09:00
 thumbnail: /images/image_1bd786ae.jpg
