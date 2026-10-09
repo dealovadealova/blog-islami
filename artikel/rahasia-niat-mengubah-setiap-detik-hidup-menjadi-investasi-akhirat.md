@@ -35,7 +35,7 @@ Salah satu rahasia paling indah dari niat adalah kemurahan Allah dalam mengharga
 
 Jika Anda berniat tulus untuk bersedekah malam ini, namun tiba-tiba terjadi sesuatu yang membuat Anda tidak bisa melakukannya, Allah sudah mencatat pahala sedekah tersebut utuh untuk Anda. Niat memungkinkan seorang muslim mengumpulkan pahala yang melampaui batas umur, keterbatasan fisik, dan kemampuan finansialnya.
 
-**_Kesimpulan: Mulailah dari Hati_**
+**_Kesimpulan: Mulailah dari Hati_** 
 
 Niat adalah kemudi dari seluruh organ tubuh kita. Sebelum Anda melangkah keluar rumah, sebelum Anda mengetik sebuah pesan di media sosial, atau sebelum Anda memulai pekerjaan, ambillah waktu tiga detik untuk bertanya pada diri sendiri: _"Untuk siapa saya melakukan ini?"_
 
