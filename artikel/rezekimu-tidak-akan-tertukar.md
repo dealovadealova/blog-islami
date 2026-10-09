@@ -2,7 +2,7 @@
 title: Rezekimu Tidak Akan Tertukar
 kategori: Renungan
 date: 2026-10-09T12:44:00
-thumbnail: ''
+thumbnail: /images/1001538404.png
 summary: Banyak orang merasa rezekinya kurang, lalu gelisah membandingkan diri dengan orang lain. Artikel ini membahas dalil-dalil shahih tentang rezeki, memisahkan antara ikhtiar dan kepasrahan, serta mengajak pembaca memahami bahwa rezeki bukan hanya soal jumlah uang. Ada beberapa amalan sederhana yang bisa dijalankan mulai hari ini.
 ---
 
