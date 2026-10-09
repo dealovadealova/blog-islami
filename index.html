@@ -156,8 +156,8 @@
     const teksNyambung = `<span>${kalimat}</span><span>${kalimat}</span><span>${kalimat}</span><span>${kalimat}</span>`;
     document.getElementById('wadah-inspirasi').innerHTML = teksNyambung;
 
-    // JALUR BARU: Beranda membaca JSON yang sudah diurutkan dari build.js
-    const DATA_URL = 'artikel.json';
+    // SISTEM API GITHUB YANG SUDAH DITINGKATKAN (Otomatis Urut Tanggal & Loading Super Cepat)
+    const API_URL = 'https://api.github.com/repos/dealovadealova/blog-islami/contents/artikel';
 
     async function muatArtikel() {
       try {
@@ -170,35 +170,105 @@
           judulHalaman.innerHTML = `Kategori: <span class="text-emerald-600">${filterKategori}</span>`;
         }
 
-        const response = await fetch(DATA_URL + '?t=' + new Date().getTime());
-        if (!response.ok) throw new Error("Gagal mengambil data dari katalog JSON");
+        const response = await fetch(API_URL + '?t=' + new Date().getTime());
+        if (!response.ok) throw new Error("Gagal mengambil data dari GitHub");
         const fileList = await response.json();
         
+        let semuaArtikel = [];
+
+        // Loading Paralel (Menarik semua file sekaligus agar tidak lemot)
+        const prosesFetch = fileList.map(async (file) => {
+          if (file.name.endsWith('.md')) {
+            try {
+              const fileRes = await fetch(file.download_url + '?t=' + new Date().getTime());
+              const teks = await fileRes.text();
+              const pembatas = teks.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+              
+              if (pembatas) {
+                const info = pembatas[1]; 
+                const isiArtikel = pembatas[2];
+
+                const ambilKategori = info.match(/kategori:\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
+                let kategori = ambilKategori ? ambilKategori[1].trim() : 'Tanpa Kategori';
+
+                if (filterKategori && filterKategori.toLowerCase() !== kategori.toLowerCase()) return null; 
+
+                const ambilJudul = info.match(/title:\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
+                let judul = ambilJudul ? ambilJudul[1].trim() : 'Tanpa Judul';
+
+                const ambilGambar = info.match(/(?:thumbnail|gambar|image):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
+                let gambar = ambilGambar ? ambilGambar[1].trim() : 'profil.png';
+
+                let ambilRingkasan = info.match(/(?:description|ringkasan):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
+                let ringkasan = ambilRingkasan ? ambilRingkasan[1].trim() : '';
+
+                if (!ringkasan && isiArtikel) {
+                  let teksBersih = isiArtikel.replace(/[#*`_>\[\]]/g, '').replace(/\s+/g, ' ').trim();
+                  ringkasan = teksBersih.substring(0, 120) + '...';
+                }
+
+                // Ambil Tanggal dari artikel
+                let tMatch = info.match(/(?:date|tanggal|waktu):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
+                let dateObj = new Date(0); // Anggap artikel lama jika tidak ada isian tanggal
+                if (tMatch) {
+                   let parsedDate = new Date(tMatch[1].trim());
+                   if(!isNaN(parsedDate.getTime())) dateObj = parsedDate;
+                }
+
+                let opsiTanggal = { day: 'numeric', month: 'long', year: 'numeric' };
+                let tanggalCantik = dateObj.getTime() === 0 ? '' : dateObj.toLocaleDateString('id-ID', opsiTanggal);
+
+                semuaArtikel.push({
+                   judul: judul,
+                   kategori: kategori,
+                   gambar: gambar,
+                   ringkasan: ringkasan,
+                   dateObj: dateObj,
+                   tanggalCantik: tanggalCantik,
+                   link: file.name.replace('.md', '.html')
+                });
+              }
+            } catch (err) {
+              console.log("Ada file yang tidak terbaca:", file.name);
+            }
+          }
+        });
+
+        // Tunggu proses sedot semua artikel selesai
+        await Promise.all(prosesFetch);
+
+        // OTOMATIS URUTKAN BERDASARKAN TANGGAL TERBARU
+        semuaArtikel.sort((a, b) => b.dateObj - a.dateObj);
+
         let htmlArtikel = '';
         let jumlahTampil = 0;
 
-        for (const file of fileList) {
-          if (filterKategori && filterKategori.toLowerCase() !== file.kategori.toLowerCase()) continue; 
-
-          htmlArtikel += `
-            <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
-              <img src="${file.gambar}" alt="${file.judul}" class="w-full h-48 object-cover">
-              <div class="p-6 flex-grow flex flex-col">
-                <div class="flex justify-between items-start mb-2">
-                  <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">${file.kategori}</span>
-                  <span class="text-[10px] text-slate-400 font-medium text-right w-1/2 flex justify-end items-center gap-1">
+        // Cetak ke layar
+        for (const artikel of semuaArtikel) {
+            // Jika ada tanggalnya, tampilkan kalender kecil
+            let infoTanggal = artikel.tanggalCantik 
+               ? `<span class="text-[10px] text-slate-400 font-medium text-right w-1/2 flex justify-end items-center gap-1">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    ${file.tanggal.split(' ')[0]} ${file.tanggal.split(' ')[1]} ${file.tanggal.split(' ')[2]}
-                  </span>
+                    ${artikel.tanggalCantik}
+                  </span>` 
+               : '';
+
+            htmlArtikel += `
+              <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
+                <img src="${artikel.gambar}" alt="${artikel.judul}" class="w-full h-48 object-cover">
+                <div class="p-6 flex-grow flex flex-col">
+                  <div class="flex justify-between items-start mb-2">
+                    <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">${artikel.kategori}</span>
+                    ${infoTanggal}
+                  </div>
+                  <h4 class="text-xl font-bold mt-1 mb-3 leading-tight">${artikel.judul}</h4>
+                  <p class="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow">${artikel.ringkasan}</p>
+                  <a href="${artikel.link}" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700 mt-auto">Baca selengkapnya &rarr;</a>
                 </div>
-                <h4 class="text-xl font-bold mt-1 mb-3 leading-tight">${file.judul}</h4>
-                <p class="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow">${file.ringkasan}</p>
-                <a href="${file.link}" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700 mt-auto">Baca selengkapnya &rarr;</a>
-              </div>
-            </article>
-          `;
-          jumlahTampil++;
-        } 
+              </article>
+            `;
+            jumlahTampil++;
+        }
 
         if (wadahArtikel) {
           if (jumlahTampil === 0) {
