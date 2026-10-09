@@ -24,7 +24,7 @@ Thalhah kemudian bertanya, _"Wahai Ibu, siapa lelaki yang datang menemuimu tadi 
 
 Nenek tua itu menggelengkan kepala dan menjawab, _"Aku tidak tahu siapa nama aslinya. Dia adalah seorang lelaki yang rutin datang ke sini setiap malam."_
 
-_"Apa yang dia lakukan untukmu?"_ tanya Thalhah lagi.
+_"Apa yang dia lakukan untukmu?"_ tanya Thalhah lagi .
 
 Nenek itu tersenyum dan menjawab dengan tulus, _"Dia selalu membawakan makanan untukku, membersihkan kotoran di rumahku, mencuci pakaianku, serta menyiapkan keperluan air dan makananku. Dia melakukan semua itu, lalu pergi begitu saja tanpa pernah meminta imbalan apa pun."_
 
@@ -42,7 +42,6 @@ Di zaman modern di mana semua hal mudah diunggah ke media sosial, kita ditantang
 Menyembunyikan amal adalah tameng terbaik dari penyakit _riya_ (ingin dipuji) dan _sum'ah_ (ingin didengar). Pujian manusia itu semu dan sementara, namun pandangan Allah bersifat kekal.
 3. **Pemimpin adalah Pelayan Masyarakat**
 Baik Abu Bakar maupun Umar bin Khattab mengajarkan bahwa jabatan tinggi tidak membuat mereka gengsi untuk membersihkan rumah seorang nenek buta sebatang kara. Mereka memikul tanggung jawab secara nyata di hadapan Allah.
-
 
 Jika Anda menyukai kisah inspiratif seperti ini, bagian mana yang ingin Anda eksplorasi lebih jauh?
 
