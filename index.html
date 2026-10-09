@@ -156,7 +156,8 @@
     const teksNyambung = `<span>${kalimat}</span><span>${kalimat}</span><span>${kalimat}</span><span>${kalimat}</span>`;
     document.getElementById('wadah-inspirasi').innerHTML = teksNyambung;
 
-    const API_URL = 'https://api.github.com/repos/dealovadealova/blog-islami/contents/artikel';
+    // JALUR BARU: Beranda membaca JSON yang sudah diurutkan dari build.js
+    const DATA_URL = 'artikel.json';
 
     async function muatArtikel() {
       try {
@@ -169,60 +170,34 @@
           judulHalaman.innerHTML = `Kategori: <span class="text-emerald-600">${filterKategori}</span>`;
         }
 
-        const response = await fetch(API_URL + '?t=' + new Date().getTime());
-        if (!response.ok) throw new Error("Gagal mengambil data dari GitHub");
+        const response = await fetch(DATA_URL + '?t=' + new Date().getTime());
+        if (!response.ok) throw new Error("Gagal mengambil data dari katalog JSON");
         const fileList = await response.json();
         
         let htmlArtikel = '';
         let jumlahTampil = 0;
 
         for (const file of fileList) {
-          if (file.name.endsWith('.md')) {
-            try {
-              const fileRes = await fetch(file.download_url + '?t=' + new Date().getTime());
-              const teks = await fileRes.text();
-              const pembatas = teks.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-              
-              if (pembatas) {
-                const info = pembatas[1]; 
-                const isiArtikel = pembatas[2];
+          if (filterKategori && filterKategori.toLowerCase() !== file.kategori.toLowerCase()) continue; 
 
-                const ambilKategori = info.match(/kategori:\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
-                let kategori = ambilKategori ? ambilKategori[1].trim() : 'Tanpa Kategori';
-
-                if (filterKategori && filterKategori.toLowerCase() !== kategori.toLowerCase()) continue; 
-
-                const ambilJudul = info.match(/title:\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
-                let judul = ambilJudul ? ambilJudul[1].trim() : 'Tanpa Judul';
-
-                const ambilGambar = info.match(/(?:thumbnail|gambar|image):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
-                let gambar = ambilGambar ? ambilGambar[1].trim() : 'profil.png';
-
-                let ambilRingkasan = info.match(/(?:description|ringkasan):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
-                let ringkasan = ambilRingkasan ? ambilRingkasan[1].trim() : '';
-
-                if (!ringkasan && isiArtikel) {
-                  let teksBersih = isiArtikel.replace(/[#*`_>\[\]]/g, '').replace(/\s+/g, ' ').trim();
-                  ringkasan = teksBersih.substring(0, 120) + '...';
-                }
-
-                htmlArtikel += `
-                  <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                    <img src="${gambar}" alt="${judul}" class="w-full h-48 object-cover">
-                    <div class="p-6 flex-grow flex flex-col">
-                      <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">${kategori}</span>
-                      <h4 class="text-xl font-bold mt-2 mb-3 leading-tight">${judul}</h4>
-                      <p class="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow">${ringkasan}</p>
-                      <a href="${file.name.replace('.md', '.html')}" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700 mt-auto">Baca selengkapnya &rarr;</a>
-                    </div>
-                  </article>
-                `;
-                jumlahTampil++;
-              }
-            } catch (err) {
-              console.log("Ada file yang tidak terbaca:", file.name);
-            }
-          }
+          htmlArtikel += `
+            <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
+              <img src="${file.gambar}" alt="${file.judul}" class="w-full h-48 object-cover">
+              <div class="p-6 flex-grow flex flex-col">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">${file.kategori}</span>
+                  <span class="text-[10px] text-slate-400 font-medium text-right w-1/2 flex justify-end items-center gap-1">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    ${file.tanggal.split(' ')[0]} ${file.tanggal.split(' ')[1]} ${file.tanggal.split(' ')[2]}
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold mt-1 mb-3 leading-tight">${file.judul}</h4>
+                <p class="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow">${file.ringkasan}</p>
+                <a href="${file.link}" class="text-emerald-600 text-sm font-semibold hover:text-emerald-700 mt-auto">Baca selengkapnya &rarr;</a>
+              </div>
+            </article>
+          `;
+          jumlahTampil++;
         } 
 
         if (wadahArtikel) {
