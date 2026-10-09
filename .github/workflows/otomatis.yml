@@ -2,7 +2,7 @@ name: Buat HTML Otomatis
 on:
   push:
     paths:
-      - 'artikel/**' # Robot hanya jalan kalau ada artikel baru
+      - 'artikel/**'
 jobs:
   bangun-html:
     runs-on: ubuntu-latest
@@ -17,10 +17,10 @@ jobs:
         run: npm install marked
       - name: Jalankan Mesin Pembuat HTML
         run: node build.js
-      - name: Simpan File HTML ke GitHub
+      - name: Simpan File HTML dan Katalog ke GitHub
         run: |
           git config --global user.name "Robot Irkham"
           git config --global user.email "robot@irkham.com"
-          git add *.html
+          git add *.html katalog.json
           git commit -m "Auto-generate artikel HTML [skip ci]" || echo "Tidak ada perubahan"
           git push
