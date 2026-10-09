@@ -7,19 +7,23 @@ const files = fs.readdirSync('./artikel');
 files.forEach(file => {
   if(file.endsWith('.md')) {
     const text = fs.readFileSync('./artikel/' + file, 'utf-8');
-    const parts = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+    
+    // REGEX TAHAN BANTING: Bisa membaca segala jenis format Enter (Windows/Mac/Linux/HP)
+    const parts = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
     
     if(parts) {
       const info = parts[1];
       const isi = parts[2];
       
-      // Diperbaiki: Bisa membaca 'kategori' ataupun 'category' dari Sveltia
-      let judul = (info.match(/title:\s*['"]?(.*?)['"]?(?:\n|$)/) || [])[1] || 'Tanpa Judul';
-      let kategoriMatch = info.match(/(?:kategori|category):\s*['"]?(.*?)['"]?(?:\n|$)/);
-      let kategori = kategoriMatch ? kategoriMatch[1] : 'Kajian';
+      let judul = (info.match(/title:\s*['"]?(.*?)['"]?(?:\r?\n|$)/i) || [])[1] || 'Tanpa Judul';
+      let kategoriMatch = info.match(/(?:kategori|category):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
+      let kategori = kategoriMatch ? kategoriMatch[1].trim() : 'Kajian';
       
-      let ringkasan = (info.match(/(?:description|ringkasan):\s*['"]?(.*?)['"]?(?:\n|$)/) || [])[1] || judul;
-      let gambar = (info.match(/(?:thumbnail|gambar):\s*['"]?(.*?)['"]?(?:\n|$)/) || [])[1] || 'profil.png';
+      let ringkasanMatch = info.match(/(?:description|ringkasan):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
+      let ringkasan = ringkasanMatch ? ringkasanMatch[1].trim() : judul;
+      
+      let gambarMatch = info.match(/(?:thumbnail|gambar|image):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
+      let gambar = gambarMatch ? gambarMatch[1].trim() : 'profil.png';
       
       const htmlKonten = marked.parse(isi);
       
@@ -29,11 +33,13 @@ files.forEach(file => {
         .replace(/{{RINGKASAN}}/g, ringkasan)
         .replace(/{{GAMBAR}}/g, gambar)
         .replace(/{{KONTEN}}/g, htmlKonten)
-        .replace(/{{NAMA_FILE_MD}}/g, file); // Penting untuk mengembalikan Database
+        .replace(/{{NAMA_FILE_MD}}/g, file);
         
       const namaFileBaru = file.replace('.md', '.html');
       fs.writeFileSync('./' + namaFileBaru, hasilAkhir);
-      console.log('Berhasil membuat: ' + namaFileBaru);
+      console.log('Berhasil membuat HTML untuk: ' + namaFileBaru);
+    } else {
+      console.log('PERINGATAN: Gagal membaca format kepala artikel pada file ' + file);
     }
   }
 });
