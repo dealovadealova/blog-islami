@@ -21,6 +21,6 @@ jobs:
         run: |
           git config --global user.name "Robot Irkham"
           git config --global user.email "robot@irkham.com"
-          git add *.html katalog.json
+          git add .
           git commit -m "Auto-generate artikel HTML [skip ci]" || echo "Tidak ada perubahan"
           git push
