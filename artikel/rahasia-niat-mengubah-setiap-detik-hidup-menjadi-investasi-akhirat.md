@@ -7,7 +7,7 @@ summary: Bukan tentang seberapa megah amalmu, tapi tentang ke mana hatimu berkib
 category: Akhlak
 ---
 
-Dalam panggung kehidupan, setiap manusia sibuk memperbanyak aktivitas. Namun, di dalam Islam, bukan sekadar "apa" yang Anda lakukan yang menentukan nilai sebuah perbuatan, melainkan **"mengapa" Anda melakukannya**. Inilah **rahasia terbesar niat (niyyah)**—sebuah kekuatan tidak terlihat yang mampu mengubah rutinitas biasa menjadi ibadah luar biasa, serta menjadi kunci utama penentu nasib kita di akhirat.
+Dalam panggung kehidupan, setiap manusia sibuk memperbanyak aktivitas. Namun, di dalam Islam, bukan sekadar "apa" yang Anda lakukan yang menentukan nilai sebuah perbuatan, melainkan **"mengapa" Anda melakukannya**. Inilah \*\*rahasia terbesar niat (niyyah)\*\*—sebuah kekuatan tidak terlihat yang mampu mengubah rutinitas biasa menjadi ibadah luar biasa, serta menjadi kunci utama penentu nasib kita di akhirat.
 
 1\. **Alkemis Spiritual: Mengubah Arang Menjadi Emas**
 
@@ -17,7 +17,7 @@ Niat berfungsi seperti alkemis spiritual. Ketika seorang muslim tidur dengan nia
 
 2\. **Poros Diterimanya Amal (The Ultimate Filter)**
 
-Niat bukan sekadar pelengkap, melainkan fondasi utama. Rasulullah SAW menegaskan hal ini dalam hadits yang sangat populer:
+Niat bukan sekadar pelengkap, melainkan fondasi utama. Rasulullah SAW menegaskan hal ini dalam hadits yang sangat populer :
 
 > _"Sesungguhnya setiap amalan itu bergantung pada niatnya..."_ (HR. Bukhari & Muslim)
 
