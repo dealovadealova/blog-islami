@@ -6,8 +6,8 @@ thumbnail: /images/1001538404.png
 summary: Banyak orang merasa rezekinya kurang, lalu gelisah membandingkan diri dengan orang lain. Artikel ini membahas dalil-dalil shahih tentang rezeki, memisahkan antara ikhtiar dan kepasrahan, serta mengajak pembaca memahami bahwa rezeki bukan hanya soal jumlah uang. Ada beberapa amalan sederhana yang bisa dijalankan mulai hari ini.
 ---
 
-Mengapa Kita Sering Merasa Rezeki Kurang?
-Hampir setiap orang pernah merasa penghasilannya belum cukup. Gaji terasa habis sebelum akhir bulan, usaha terasa sepi, atau kita melihat teman sebaya yang sudah lebih dulu mapan. Perasaan seperti ini wajar, tetapi sering membuat hati sempit dan lupa bahwa rezeki sudah diatur oleh Allah jauh sebelum kita lahir.
+Mengapa Kita Sering Merasa Rezeki Kurang??
+Hampir setiap orang pernah merasa penghasilannya belum cukup. Gaji terasa habis sebelum akhir bulan, usaha terasa sepi, atau kita melihat teman sebaya yang sudah lebih dulu mapan.  Perasaan seperti ini wajar, tetapi sering membuat hati sempit dan lupa bahwa rezeki sudah diatur oleh Allah jauh sebelum kita lahir.
 Allah berfirman:
 وَمَا مِن دَآبَّةٍ فِي ٱلْأَرْضِ إِلَّا عَلَى ٱللَّهِ رِزْقُهَا
 "Dan tidak ada suatu binatang melata pun di bumi melainkan Allah-lah yang memberi rezekinya." (QS. Hud: 6)
@@ -21,7 +21,6 @@ Rezeki Datang dari Arah yang Tidak Disangka
 Allah berfirman:
 وَمَن يَتَّقِ ٱللَّهَ يَجْعَل لَّهُۥ مَخْرَجًا \* وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
 "Barangsiapa bertakwa kepada Allah, niscaya Dia akan memberinya jalan keluar, dan memberinya rezeki dari arah yang tidak disangka-sangka." (QS. At-Talaq: 2-3)
-
 
 Ayat ini mengajarkan bahwa jalan rezeki sering tidak terduga. Kadang datang dari peluang yang tidak kita rencanakan, dari orang yang tidak kita kenal, atau dari kemudahan yang tiba-tiba hadir ketika kita sedang sempit. Tugas kita adalah menjaga takwa dan terus berikhtiar dengan jujur.
 Hati yang Tenang Juga Bagian dari Rezeki
