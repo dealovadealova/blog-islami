@@ -1,18 +1,18 @@
 ---
-title: Paling Dibenci Nabi & Jauh dari Telaga Kiamat? Cek Kamu Termasuk Tidak
+title: Paling Dibenci Nabi, Cek Kamu Termasuk Tidak
 kategori: Akhlak
 date: 2026-10-14T05:30:00
 thumbnail: /images/1001545546.png
 summary: Rasulullah ﷺ menyebut ciri-ciri orang yang paling Ia benci dan akan berdiri paling jauh darinya di hari kiamat. Ternyata bukan pembunuh atau pezina, tapi tipe mulut seperti ini! Hati-hati, jangan sampai kita termasuk golongannya. Simak dalil shahihnya di sini.
 ---
 
-Halo Sobat! Kalau ditanya siapa musuh terbesar seorang Muslim, mungkin jawabannya setan. Tapi pernah nggak sih kita sadar kalau有时候, "musuh" itu justru ada di tubuh kita sendiri? Tepatnya... di mulut kita! 🤐
+Halo Sobat! Kalau ditanya siapa musuh terbesar seorang Muslim, mungkin jawabannya setan. Tapi pernah nggak sih kita sadar kalau "musuh" itu justru ada di tubuh kita sendiri? Tepatnya... di mulut kita! 🤐
 
 Ada satu hadits Rasulullah ﷺ yang bikin bulu kuduk merinding sekaligus menjadi teguran keras bagi kita semua. Beliau secara spesifik menyebutkan golongan manusia yang \*\*paling Ia benci\*\* dan yang posisinya akan \*\*paling jauh\*\* dari beliau saat di Padang Mahsyar nanti.
 
 Yang mengejutkan, golongan ini bukanlah para pelaku dosa besar seperti pencuri atau perampok. Melainkan orang-orang biasa yang punya kebiasaan buruk dalam berbicara. Penasaran siapa saja mereka? Yuk, simak baik-baik!
 
-\#### \*\*Ciri-Ciri Orang yang Dijauhi Rasulullah ﷺ\*\*
+\*\*Ciri-Ciri Orang yang Dijauhi Rasulullah ﷺ\*\*
 
 Dalam sebuah hadits shahih, Rasulullah ﷺ bersabda tentang tiga sifat utama yang membuat seseorang dijauhi oleh beliau di akhirat kelak. Sifat-sifat tersebut adalah:
 
@@ -30,7 +30,7 @@ Dalam sebuah hadits shahih, Rasulullah ﷺ bersabda tentang tiga sifat utama yan
 
 Bayangkan betapa sedihnya posisi mereka nanti. Saat umat Islam lainnya berebut mendekati telaga Nabi ﷺ untuk minum air yang menyegarkan dahaga setelah perjalanan panjang di Padang Mahsyar, kelompok ini justru didorong menjauh oleh Malaikat karena akhlak lisan mereka yang busuk.
 
-\#### \*\*Dalil Shahih yang Wajib Kita Ingat\*\*
+\*\*Dalil Shahih yang Wajib Kita Ingat\*\*
 
 Jangan anggap remeh peringatan ini. Berikut adalah sumber haditsnya agar kita yakin kebenarannya:
 
@@ -38,7 +38,7 @@ Jangan anggap remeh peringatan ini. Berikut adalah sumber haditsnya agar kita ya
 
 \*"Sesungguhnya orang yang paling aku cintai di antara kalian dan yang paling dekat kedudukannya denganku pada hari kiamat nanti adalah orang yang terbaik akhlaknya. Dan sesungguhnya orang yang paling aku benci di antara kalian dan yang paling jauh kedudukannya denganku pada hari kiamat nanti adalah \*\*ats-tsartsaruun\*\* (orang-orang yang banyak bicara), \*\*al-mutashaddiquun\*\* (orang-orang yang bermulut kasar/mencela), dan \*\*al-mutafayhiquun\*\* (orang-orang yang sombong)."\*
 
-\*\*(HR. Tirmidzi No. 1947, dinilai Hasan/Shahih oleh Al-Albani dalam Shahih Sunan Tirmidzi)\*\*
+\*\*(HR. Tirmidzi No. 1947, dinilai Hasan/Shahih dalam Shahih Sunan Tirmidzi)\*\*
 
 \#### \*\*Mengapa Mulut Begitu Berbahaya?\*\*
 
