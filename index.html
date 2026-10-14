@@ -201,13 +201,13 @@
                 const ambilGambar = info.match(/(?:thumbnail|gambar|image):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
                 let gambar = ambilGambar ? ambilGambar[1].trim() : 'profil.png';
 
-                // --- PERBAIKAN MESIN PENARIK RINGKASAN CMS ---
-                let ambilRingkasan = info.match(/(?:description|ringkasan):\s*([^\r\n]+)/i);
+                // --- PERBAIKAN MESIN PENARIK RINGKASAN CMS (VERSI TAHAN BANTING) ---
+                let barisRingkasan = info.match(/(?:description|ringkasan):\s*(.+)/i);
                 let ringkasan = '';
                 
-                if (ambilRingkasan) {
-                  // Bersihkan tanda kutip ganda/tunggal yang ditambahkan otomatis oleh Sveltia
-                  ringkasan = ambilRingkasan[1].replace(/^['"]|['"]$/g, '').trim();
+                if (barisRingkasan) {
+                  // Hapus semua jenis tanda kutip dan bersihkan spasi
+                  ringkasan = barisRingkasan[1].replace(/['"]/g, '').trim();
                 }
 
                 // Jika kolom ringkasan di CMS memang benar-benar tidak diisi, baru ambil awal artikel
