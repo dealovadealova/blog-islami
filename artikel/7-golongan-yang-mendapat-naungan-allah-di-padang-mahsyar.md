@@ -6,7 +6,7 @@ thumbnail: /images/1791798726.png
 summary: Bayangkan matahari didekatkan satu mil dan panasnya luar biasa! Di tengah kepanikan itu, ada 7 golongan istimewa yang justru menikmati sejuknya naungan Arsy Allah. Siapa saja mereka? Simak rahasia lengkap beserta dalil shahihnya di sini!
 ---
 
-Halo Sobat! Pernah nggak sih kita membayangkan betapa dahsyatnya hari kiamat nanti?
+Halo Sobat! Pernah nggak sih kita membayangkan betapa dahsyatnya huruf hara hari kiamat nanti?
 
 Dalam sebuah hadits, Rasulullah ﷺ menggambarkan bahwa di Padang Mahsyar, matahari akan didekatkan sejauh satu mil. Panasnya luar biasa, sampai-sampai manusia berkeringat sesuai kadar dosa mereka. Ada yang keringatnya cuma sampai mata kaki, ada yang sampai lutut, bahkan ada yang hampir tenggelam!
 
@@ -25,9 +25,6 @@ Sebelum kita bahas satu per satu, ini adalah landasan utamanya. Hadits ini sanga
 
 **Status Hadits:**
 **Shahih (Muttafaq 'alaih)**. Diriwayatkan oleh Imam Al-Bukhari (no. 660, 1423) dan Imam Muslim (no. 1031). Ini adalah derajat hadits tertinggi dan sangat terpercaya!
-
-
-
 
 #### **Siapa Saja 7 Golongan Beruntung Itu?**
 
