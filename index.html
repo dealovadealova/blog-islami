@@ -155,7 +155,9 @@
     const kalimat = "✨ " + daftarInspirasi[hariIni] + " ✨";
     const teksNyambung = `<span>${kalimat}</span><span>${kalimat}</span><span>${kalimat}</span><span>${kalimat}</span>`;
     document.getElementById('wadah-inspirasi').innerHTML = teksNyambung;
+  </script>
 
+  <script>
     // SISTEM API GITHUB YANG SUDAH DITINGKATKAN (Otomatis Urut Tanggal & Loading Super Cepat)
     const API_URL = 'https://api.github.com/repos/dealovadealova/blog-islami/contents/artikel';
 
@@ -199,9 +201,16 @@
                 const ambilGambar = info.match(/(?:thumbnail|gambar|image):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
                 let gambar = ambilGambar ? ambilGambar[1].trim() : 'profil.png';
 
-                let ambilRingkasan = info.match(/(?:description|ringkasan):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
-                let ringkasan = ambilRingkasan ? ambilRingkasan[1].trim() : '';
+                // --- PERBAIKAN MESIN PENARIK RINGKASAN CMS ---
+                let ambilRingkasan = info.match(/(?:description|ringkasan):\s*([^\r\n]+)/i);
+                let ringkasan = '';
+                
+                if (ambilRingkasan) {
+                  // Bersihkan tanda kutip ganda/tunggal yang ditambahkan otomatis oleh Sveltia
+                  ringkasan = ambilRingkasan[1].replace(/^['"]|['"]$/g, '').trim();
+                }
 
+                // Jika kolom ringkasan di CMS memang benar-benar tidak diisi, baru ambil awal artikel
                 if (!ringkasan && isiArtikel) {
                   let teksBersih = isiArtikel.replace(/[#*`_>\[\]]/g, '').replace(/\s+/g, ' ').trim();
                   ringkasan = teksBersih.substring(0, 120) + '...';
@@ -209,7 +218,7 @@
 
                 // Ambil Tanggal dari artikel
                 let tMatch = info.match(/(?:date|tanggal|waktu):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
-                let dateObj = new Date(0); // Anggap artikel lama jika tidak ada isian tanggal
+                let dateObj = new Date(0); 
                 if (tMatch) {
                    let parsedDate = new Date(tMatch[1].trim());
                    if(!isNaN(parsedDate.getTime())) dateObj = parsedDate;
@@ -245,7 +254,6 @@
 
         // Cetak ke layar
         for (const artikel of semuaArtikel) {
-            // Jika ada tanggalnya, tampilkan kalender kecil
             let infoTanggal = artikel.tanggalCantik 
                ? `<span class="text-[10px] text-slate-400 font-medium text-right w-1/2 flex justify-end items-center gap-1">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
