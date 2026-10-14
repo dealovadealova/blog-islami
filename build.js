@@ -1,6 +1,11 @@
 const fs = require('fs');
 const marked = require('marked');
 
+// MENGAKTIFKAN FITUR ENTER (PARAGRAF) OTOMATIS
+marked.setOptions({
+  breaks: true
+});
+
 const template = fs.readFileSync('template-artikel.html', 'utf-8');
 const files = fs.readdirSync('./artikel');
 
@@ -30,7 +35,14 @@ files.forEach(file => {
       let dateObj = new Date();
       
       if (tanggalMatch) {
-        let parsedDate = new Date(tanggalMatch[1].trim());
+        let stringTanggal = tanggalMatch[1].trim();
+        
+        // PAKSA ROBOT AMERIKA MEMBACA INI SEBAGAI JAM INDONESIA (+07:00)
+        if (!stringTanggal.includes('Z') && !stringTanggal.includes('+')) {
+            stringTanggal = stringTanggal.replace(' ', 'T') + '+07:00';
+        }
+        
+        let parsedDate = new Date(stringTanggal);
         if (!isNaN(parsedDate.getTime())) {
             dateObj = parsedDate;
         }
@@ -54,7 +66,7 @@ files.forEach(file => {
         .replace(/{{GAMBAR}}/g, gambar)
         .replace(/{{KONTEN}}/g, htmlKonten)
         .replace(/{{NAMA_FILE_MD}}/g, file)
-        .replace(/{{TANGGAL}}/g, tanggalCantik); // <-- INI YANG MENYUNTIKKAN TANGGAL & JAM KE TEMPLATE
+        .replace(/{{TANGGAL}}/g, tanggalCantik); 
         
       const namaFileBaru = file.replace('.md', '.html');
       fs.writeFileSync('./' + namaFileBaru, hasilAkhir);
