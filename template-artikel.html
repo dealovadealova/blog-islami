@@ -214,4 +214,74 @@
       document.getElementById('tampilan-angka-baca').classList.remove('animate-pulse');
       
       document.getElementById('angka-like').innerText = jumlahLike;
-      document
+      document.getElementById('angka-like').classList.remove('animate-pulse');
+      window.jumlahLikeAktif = jumlahLike; 
+    }, 100);
+
+    const sudahLike = localStorage.getItem('suka_' + fileName) === 'ya';
+    if(sudahLike) {
+      const btn = document.getElementById('btn-like');
+      const icon = document.getElementById('icon-like');
+      icon.setAttribute('fill', 'currentColor');
+      btn.classList.add('border-pink-500', 'text-pink-500');
+      btn.classList.remove('border-slate-200', 'text-slate-600');
+    }
+
+    window.klikLike = async function() {
+      if (!fileName) return;
+      if (localStorage.getItem('suka_' + fileName) === 'ya') {
+        alert("Terima kasih, Anda sudah menyukai artikel ini!");
+        return;
+      }
+
+      const btn = document.getElementById('btn-like');
+      const icon = document.getElementById('icon-like');
+      const angka = document.getElementById('angka-like');
+      
+      let jumlahSekarang = window.jumlahLikeAktif || parseInt(angka.innerText) || 0;
+      angka.innerText = jumlahSekarang + 1;
+      icon.setAttribute('fill', 'currentColor');
+      btn.classList.add('border-pink-500', 'text-pink-500');
+      btn.classList.remove('border-slate-200', 'text-slate-600');
+      
+      localStorage.setItem('suka_' + fileName, 'ya');
+
+      try {
+        const refDokumen = doc(db, "artikel", fileName);
+        await updateDoc(refDokumen, { suka: increment(1) });
+      } catch (e) {
+        console.error("Gagal Suka Firebase", e);
+      }
+    };
+
+    // Panggil Disqus
+    window.disqus_config = function () {
+        this.page.url = window.location.href;  
+        this.page.identifier = fileName; 
+    };
+    const d = document, s = d.createElement('script');
+    s.src = 'https://irkham.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  </script>
+
+  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (Tambahan Baru) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const semuaParagraf = document.querySelectorAll('.prose p, .prose h1, .prose h2, .prose h3, .prose blockquote, .prose span, .prose div');
+      const polaArab = /[\u0600-\u06FF]/;
+      
+      semuaParagraf.forEach(el => {
+        if (polaArab.test(el.innerText)) {
+          el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
+          el.style.fontSize = "1.75rem"; 
+          el.style.lineHeight = "2.4";
+          el.style.textAlign = "right"; 
+          el.dir = "rtl"; 
+          el.classList.add("text-emerald-800", "my-6"); 
+        }
+      });
+    });
+  </script>
+</body>
+</html>
