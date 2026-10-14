@@ -12,7 +12,7 @@ Padahal, di balik kemalasan kecil itu, tersimpan pahala raksasa yang sedang kita
 
 Tapi tunggu, keutamaannya nggak berhenti di situ. Ada pahala langkah kaki, ada doa para malaikat, sampai ada perintah langsung dari Allah SWT di dalam Al-Qur'an. Yuk, kita bedah satu per satu dengan dalil yang kuat dan terpercaya!
 
-\#### \*\*Perintah Langsung dari Al-Qur'an\*\*
+ \*\*Perintah Langsung dari Al-Qur'an\*\*
 
 Sebelum masuk ke hadits, perhatikan dulu firman Allah SWT yang oleh para mufassir Ahlus Sunnah dipahami sebagai perintah sholat berjamaah:
 
