@@ -3,7 +3,7 @@ title: Satu Kata Ajaib Penyelesai Semua Masalah
 kategori: Kisah
 date: 2026-10-13T05:44:00
 thumbnail: /images/1001543808.png
-summary: Ditanya soal hujan, dijawab istighfar. Ditanya soal miskin, dijawab istighfar. Kok bisa? Simak kisah legendaris Hasan Al-Basri yang membuktikan kalau satu kalimat ini adalah solusi dari segala masalah hidup!
+summary: Ditanya soal hujan, dijawab istighfar. Ditanya soal miskin, dijawab istighfar. Kok bisa? Simak kisah legendaris Hasan Al-Basri yang membuktikan kalau satu kalimat ini adalah solusi dari segala masalah hidup !
 ---
 
 Halo Sobat! Pernah nggak sih kita merasa hidup ini kayak "langganan" masalah? Baru satu masalah kelar, eh muncul lagi yang lain. Mulai dari rezeki yang seret, cuaca yang nggak menentu, sampai keinginan punya keturunan yang belum juga terkabul. 
