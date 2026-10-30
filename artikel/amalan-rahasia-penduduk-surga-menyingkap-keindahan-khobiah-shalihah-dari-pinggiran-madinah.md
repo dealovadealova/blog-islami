@@ -1,8 +1,8 @@
 ---
-title: Amalan Rahasia Penduduk Surga Yang Belum Diketahui
+title: Amalan Rahasia Penduduk Surga Yang Jarang Diketahui
 kategori: Kisah
 date: 2026-10-07T16:09:00
-thumbnail: /images/image_1bd786ae.jpg
+thumbnail: /images/Stone_path_leading_to_gate_3e6b984b.jpg
 summary: "Sebuah rahasia besar terungkap di bawah langit malam Madinah. Sahabat mulia Thalhah bin Ubaidillah secara diam-diam membuntuti Amirul Mukminin, Umar bin Khattab, demi memecahkan sebuah teka-teki: ke mana sang khalifah pergi sendirian setiap malam? Jawaban yang ia temukan bukan sekadar aksi sosial, melainkan sebuah teladan agung tentang khobi'ah shalihah—amalan rahasia yang disembunyikan rapat-rapat dari pandangan manusia, demi menjaga kemurnian niat murni di hadapan Allah SWT."
 ---
 
