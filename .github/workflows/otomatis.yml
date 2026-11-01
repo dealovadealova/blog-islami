@@ -1,26 +1,44 @@
 name: Buat HTML Otomatis
+
 on:
   push:
     paths:
       - 'artikel/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
   bangun-html:
     runs-on: ubuntu-latest
     steps:
       - name: Ambil Data Web
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Siapkan Mesin Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
+
       - name: Install Alat Pengubah Teks
-        run: npm install marked
+        run: npm install --no-save marked@12
+
       - name: Jalankan Mesin Pembuat HTML
         run: node build.js
-      - name: Simpan File HTML dan Katalog ke GitHub
+
+      - name: Buat Sitemap
+        run: node buat-sitemap.mjs
+
+      - name: Simpan HTML dan Sitemap ke GitHub
         run: |
-          git config --global user.name "Robot Irkham"
-          git config --global user.email "robot@irkham.com"
-          git add .
-          git commit -m "Auto-generate artikel HTML" || echo "Tidak ada perubahan"
+          git config user.name "Robot Irkham"
+          git config user.email "robot@irkham.com"
+          git add -- '*.html' sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Tidak ada perubahan"
+            exit 0
+          fi
+          git commit -m "Auto-generate artikel HTML dan sitemap"
+          git pull --rebase
           git push
