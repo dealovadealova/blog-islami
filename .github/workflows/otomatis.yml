@@ -9,6 +9,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: buat-html-otomatis
+  cancel-in-progress: false
+
 jobs:
   bangun-html:
     runs-on: ubuntu-latest
@@ -34,11 +38,24 @@ jobs:
         run: |
           git config user.name "Robot Irkham"
           git config user.email "robot@irkham.com"
-          git add -- '*.html' sitemap.xml
+
+          shopt -s nullglob
+          files=(*.html)
+          [ -f sitemap.xml ] && files+=(sitemap.xml)
+
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "Tidak ada file HTML atau sitemap untuk di-commit"
+            exit 0
+          fi
+
+          git add -- "${files[@]}"
+
           if git diff --cached --quiet; then
             echo "Tidak ada perubahan"
             exit 0
           fi
+
           git commit -m "Auto-generate artikel HTML dan sitemap"
+          git stash --include-untracked || true
           git pull --rebase
           git push
