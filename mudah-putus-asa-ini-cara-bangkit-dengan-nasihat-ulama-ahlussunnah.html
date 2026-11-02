@@ -294,41 +294,25 @@
     (d.head || d.body).appendChild(s);
   </script>
 
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (VERSI ANTI GAGAL) -->
+  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (VERSI SCANNER LANGSUNG) -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+      // Fokus pencarian di paragraf, kutipan, dan list
       const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li');
       
+      // Radar pendeteksi khusus gerombolan teks Arab (termasuk spasi dan harakatnya)
+      const radarArab = /([\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+(?:[\s\n،؛؟"'\(\)\-][\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+)*)/g;
+      
       semuaParagraf.forEach(el => {
-        // Jika di dalam paragraf ada huruf Arab
+        // Jika robot mendeteksi ada huruf Arab di baris ini
         if (/[\u0600-\u06FF]/.test(el.innerHTML)) {
           
-          // Pisahkan kalimat berdasarkan "Enter" (tag <br>)
-          let baris = el.innerHTML.split(/<br\s*\/?>/i);
+          // Langsung bungkus KHUSUS teks Arabnya saja dengan format Hijau & Rata Kanan
+          // Teks Indonesianya akan otomatis terpisah dan tetap aman di sebelah kiri
+          el.innerHTML = el.innerHTML.replace(radarArab, function(teksArab) {
+            return `<span dir="rtl" class="text-emerald-800" style="display: block; font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right; margin-top: 1.5rem; margin-bottom: 1.5rem;">${teksArab}</span>`;
+          });
           
-          let htmlBaru = baris.map(b => {
-            let tempDiv = document.createElement('div');
-            tempDiv.innerHTML = b;
-            let teks = tempDiv.textContent || "";
-            
-            // Hitung jumlah huruf Arab vs Latin di baris tersebut
-            let jumlahArab = (teks.match(/[\u0600-\u06FF]/g) || []).length;
-            let jumlahLatin = (teks.match(/[a-zA-Z]/g) || []).length;
-            
-            // LOGIKA EMAS: Jika huruf Arab lebih banyak, sulap baris ini jadi hijau & besar
-            if (jumlahArab > 0 && jumlahArab > jumlahLatin) {
-              return `<div dir="rtl" class="text-emerald-800 my-4" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right; display: block;">${b}</div>`;
-            }
-            
-            // Jika huruf Latin (Indonesia) lebih banyak, biarkan normal
-            return b;
-          }).join('<br>');
-          
-          // Rapikan spasi berlebih
-          htmlBaru = htmlBaru.replace(/<\/div>\s*<br\s*\/?>/gi, '</div>');
-          
-          // Terapkan kembali ke artikel
-          el.innerHTML = htmlBaru;
         }
       });
     });
