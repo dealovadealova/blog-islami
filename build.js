@@ -1,11 +1,6 @@
 const fs = require('fs');
 const marked = require('marked');
 
-// MENGAKTIFKAN FITUR ENTER (PARAGRAF) OTOMATIS
-marked.setOptions({
-  breaks: true
-});
-
 const template = fs.readFileSync('template-artikel.html', 'utf-8');
 const files = fs.readdirSync('./artikel');
 
@@ -37,7 +32,6 @@ files.forEach(file => {
       if (tanggalMatch) {
         let stringTanggal = tanggalMatch[1].trim();
         
-        // PAKSA ROBOT AMERIKA MEMBACA INI SEBAGAI JAM INDONESIA (+07:00)
         if (!stringTanggal.includes('Z') && !stringTanggal.includes('+')) {
             stringTanggal = stringTanggal.replace(' ', 'T') + '+07:00';
         }
@@ -47,26 +41,26 @@ files.forEach(file => {
             dateObj = parsedDate;
         }
       } else {
-        // Jika tidak ada tulisan tanggal, baca waktu asli file dibuat
         let stat = fs.statSync('./artikel/' + file);
         dateObj = stat.mtime;
       }
       
-      // Format lengkap dengan Jam & Menit
       let opsiTanggal = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Jakarta' };
       let tanggalCantik = dateObj.toLocaleDateString('id-ID', opsiTanggal).replace(/\./g, ':') + ' WIB';
       
-      const htmlKonten = marked.parse(isi);
+      // ---> PERBAIKAN ENTER ADA DI SINI <---
+      // Perintah breaks dipindah ke sini agar mesin versi terbaru patuh
+      const htmlKonten = marked.parse(isi, { breaks: true, gfm: true });
       
       // PROSES PENCETAKAN HTML
       let hasilAkhir = template
-        .replace(/{{JUDUL}}/g, judul)
-        .replace(/{{KATEGORI}}/g, kategori)
-        .replace(/{{RINGKASAN}}/g, ringkasan)
-        .replace(/{{GAMBAR}}/g, gambar)
-        .replace(/{{KONTEN}}/g, htmlKonten)
-        .replace(/{{NAMA_FILE_MD}}/g, file)
-        .replace(/{{TANGGAL}}/g, tanggalCantik); 
+        .replace(/{{JUDUL}}/g, () => judul)
+        .replace(/{{KATEGORI}}/g, () => kategori)
+        .replace(/{{RINGKASAN}}/g, () => ringkasan)
+        .replace(/{{GAMBAR}}/g, () => gambar)
+        .replace(/{{KONTEN}}/g, () => htmlKonten) // Menggunakan arrow function () => agar aman dari kerusakan karakter
+        .replace(/{{NAMA_FILE_MD}}/g, () => file)
+        .replace(/{{TANGGAL}}/g, () => tanggalCantik); 
         
       const namaFileBaru = file.replace('.md', '.html');
       fs.writeFileSync('./' + namaFileBaru, hasilAkhir);
