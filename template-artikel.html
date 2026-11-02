@@ -265,5 +265,23 @@
     (d.head || d.body).appendChild(s);
   </script>
 
+  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (Tambahan Baru) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const semuaParagraf = document.querySelectorAll('.prose p, .prose h1, .prose h2, .prose h3, .prose blockquote, .prose span, .prose div');
+      const polaArab = /[\u0600-\u06FF]/;
+      
+      semuaParagraf.forEach(el => {
+        if (polaArab.test(el.innerText)) {
+          el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
+          el.style.fontSize = "1.75rem"; 
+          el.style.lineHeight = "2.4";
+          el.style.textAlign = "right"; 
+          el.dir = "rtl"; 
+          el.classList.add("text-emerald-800", "my-6"); 
+        }
+      });
+    });
+  </script>
 </body>
 </html>
