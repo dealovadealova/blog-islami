@@ -18,15 +18,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ambil Data Web
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Siapkan Mesin Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
 
       - name: Install Alat Pengubah Teks
-        run: npm install --no-save marked@12
+        run: npm install marked
 
       - name: Jalankan Mesin Pembuat HTML
         run: node build.js
