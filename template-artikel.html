@@ -265,20 +265,28 @@
     (d.head || d.body).appendChild(s);
   </script>
 
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (Tambahan Baru) -->
+  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (Logika Murni) -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const semuaParagraf = document.querySelectorAll('.prose p, .prose h1, .prose h2, .prose h3, .prose blockquote, .prose span, .prose div');
-      const polaArab = /[\u0600-\u06FF]/;
+      // HANYA mengecek paragraf dan kutipan, JANGAN PERNAH mengecek 'div'
+      const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li');
       
       semuaParagraf.forEach(el => {
-        if (polaArab.test(el.innerText)) {
+        const teks = el.innerText || "";
+        
+        // Cek apakah ada huruf Arab
+        const adaArab = /[\u0600-\u06FF]/.test(teks);
+        // Cek apakah ada abjad biasa (A-Z)
+        const adaLatin = /[a-zA-Z]/.test(teks);
+        
+        // HANYA format jika paragraf itu murni Arab (TIDAK ADA abjad Latin sama sekali)
+        if (adaArab && !adaLatin) {
           el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
-          el.style.fontSize = "1.75rem"; 
+          el.style.fontSize = "1.75rem";
           el.style.lineHeight = "2.4";
-          el.style.textAlign = "right"; 
-          el.dir = "rtl"; 
-          el.classList.add("text-emerald-800", "my-6"); 
+          el.style.textAlign = "right";
+          el.dir = "rtl";
+          el.classList.add("text-emerald-800", "my-6");
         }
       });
     });
