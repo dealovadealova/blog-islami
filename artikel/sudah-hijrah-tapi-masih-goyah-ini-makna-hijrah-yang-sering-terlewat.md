@@ -30,4 +30,4 @@ Hijrah juga bisa dibaca sebagai perpindahan dari kebiasaan lama yang merugikan m
 Kuncinya ada pada konsistensi. Dalam sebuah hadis, Rasulullah SAW menyatakan bahwa amal yang paling dicintai Allah adalah yang paling konsisten, meskipun sedikit. Konsistensi ini adalah hijrah yang paling sunyi, tetapi paling nyata dampaknya.
 Kesimpulan
 Hijrah Nabi mengajarkan bahwa perubahan selalu dimulai dari niat yang lurus, dijalani dengan proses, didukung lingkungan yang baik, dan dipelihara dengan konsistensi. Hijrah hari ini tidak selalu berarti pindah kota. Ia bisa berarti pindah dari kebiasaan yang melelahkan jiwa menuju kebiasaan yang menenangkan hati, dari lingkaran yang menjauhkan kita dari Allah menuju lingkaran yang mengingatkan kita kepada-Nya.
-Pertanyaan yang bisa kita bawa pulang bukan "kapan saya akan hijrah?", tetapi "hari ini, arah mana yang sedang saya tuju??"
+Pertanyaan yang bisa kita bawa pulang bukan "kapan saya akan hijrah?", tetapi "hari ini, arah mana yang sedang saya tuju?"
