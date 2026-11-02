@@ -1,9 +1,10 @@
 const fs = require('fs');
 const marked = require('marked');
 
-// MENGAKTIFKAN FITUR ENTER (PARAGRAF) OTOMATIS
+// Menonaktifkan breaks agar jarak antar baris tidak renggang/bengkak
 marked.setOptions({
-  breaks: true
+  breaks: false,
+  gfm: true
 });
 
 const template = fs.readFileSync('template-artikel.html', 'utf-8');
@@ -30,14 +31,14 @@ files.forEach(file => {
       let gambarMatch = info.match(/(?:thumbnail|gambar|image):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
       let gambar = gambarMatch ? gambarMatch[1].trim() : 'profil.png';
       
-      // --- MESIN PENARIK TANGGAL & JAM ---
+      // --- MESIN TANGGAL (WIB / ASIA/JAKARTA) ---
       let tanggalMatch = info.match(/(?:date|tanggal|waktu):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
       let dateObj = new Date();
       
       if (tanggalMatch) {
         let stringTanggal = tanggalMatch[1].trim();
         
-        // PAKSA ROBOT AMERIKA MEMBACA INI SEBAGAI JAM INDONESIA (+07:00)
+        // Memastikan terbaca sebagai WIB (+07:00)
         if (!stringTanggal.includes('Z') && !stringTanggal.includes('+')) {
             stringTanggal = stringTanggal.replace(' ', 'T') + '+07:00';
         }
@@ -47,32 +48,30 @@ files.forEach(file => {
             dateObj = parsedDate;
         }
       } else {
-        // Jika tidak ada tulisan tanggal, baca waktu asli file dibuat
         let stat = fs.statSync('./artikel/' + file);
         dateObj = stat.mtime;
       }
       
-      // Format lengkap dengan Jam & Menit
+      // Format Jam dan Tanggal WIB
       let opsiTanggal = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Jakarta' };
       let tanggalCantik = dateObj.toLocaleDateString('id-ID', opsiTanggal).replace(/\./g, ':') + ' WIB';
       
+      // Mencetak HTML dengan aman tanpa memperbesar huruf/spasi
       const htmlKonten = marked.parse(isi);
       
-      // PROSES PENCETAKAN HTML
+      // Pemasangan ke Template (Sistem Aman dari Kerusakan Karakter)
       let hasilAkhir = template
-        .replace(/{{JUDUL}}/g, judul)
-        .replace(/{{KATEGORI}}/g, kategori)
-        .replace(/{{RINGKASAN}}/g, ringkasan)
-        .replace(/{{GAMBAR}}/g, gambar)
-        .replace(/{{KONTEN}}/g, htmlKonten)
-        .replace(/{{NAMA_FILE_MD}}/g, file)
-        .replace(/{{TANGGAL}}/g, tanggalCantik); 
+        .replace(/{{JUDUL}}/g, () => judul)
+        .replace(/{{KATEGORI}}/g, () => kategori)
+        .replace(/{{RINGKASAN}}/g, () => ringkasan)
+        .replace(/{{GAMBAR}}/g, () => gambar)
+        .replace(/{{KONTEN}}/g, () => htmlKonten)
+        .replace(/{{NAMA_FILE_MD}}/g, () => file)
+        .replace(/{{TANGGAL}}/g, () => tanggalCantik); 
         
       const namaFileBaru = file.replace('.md', '.html');
       fs.writeFileSync('./' + namaFileBaru, hasilAkhir);
-      console.log('Berhasil membuat HTML untuk: ' + namaFileBaru);
-    } else {
-      console.log('PERINGATAN: Gagal membaca format kepala artikel pada file ' + file);
+      console.log('Berhasil mencetak HTML: ' + namaFileBaru);
     }
   }
 });
