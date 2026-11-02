@@ -1,12 +1,6 @@
 const fs = require('fs');
 const marked = require('marked');
 
-// MENGAKTIFKAN KEMBALI ENTER/ALENIA OTOMATIS
-marked.setOptions({
-  breaks: true,
-  gfm: true
-});
-
 const template = fs.readFileSync('template-artikel.html', 'utf-8');
 const files = fs.readdirSync('./artikel');
 
@@ -17,21 +11,23 @@ files.forEach(file => {
     
     if(parts) {
       const info = parts[1];
-      const isi = parts[2];
+      let isi = parts[2];
+      
+      // [FITUR BARU] PEMISAH OTOMATIS: Memaksa enter ganda antara teks Latin & Arab
+      // Ini menjamin tulisan Indonesia dan Arab dipisah ke kotak paragraf yang berbeda!
+      isi = isi.replace(/([a-zA-Z0-9.,!?])\r?\n([\u0600-\u06FF])/g, '$1\n\n$2');
+      isi = isi.replace(/([\u0600-\u06FF])\r?\n([a-zA-Z0-9.,!?])/g, '$1\n\n$2');
       
       let judul = (info.match(/title:\s*['"]?(.*?)['"]?(?:\r?\n|$)/i) || [])[1] || 'Tanpa Judul';
       let kategoriMatch = info.match(/(?:kategori|category):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
       let kategori = kategoriMatch ? kategoriMatch[1].trim() : 'Kajian';
-      
       let ringkasanMatch = info.match(/(?:description|ringkasan):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
       let ringkasan = ringkasanMatch ? ringkasanMatch[1].trim() : judul;
-      
       let gambarMatch = info.match(/(?:thumbnail|gambar|image):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
       let gambar = gambarMatch ? gambarMatch[1].trim() : 'profil.png';
       
       let tanggalMatch = info.match(/(?:date|tanggal|waktu):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
       let dateObj = new Date();
-      
       if (tanggalMatch) {
         let stringTanggal = tanggalMatch[1].trim();
         if (!stringTanggal.includes('Z') && !stringTanggal.includes('+')) {
@@ -49,7 +45,8 @@ files.forEach(file => {
       let opsiTanggal = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Jakarta' };
       let tanggalCantik = dateObj.toLocaleDateString('id-ID', opsiTanggal).replace(/\./g, ':') + ' WIB';
       
-      const htmlKonten = marked.parse(isi);
+      // PENCETAKAN HTML (Cara Baru yang Benar untuk Versi Terbaru)
+      const htmlKonten = marked.parse(isi, { breaks: true, gfm: true });
       
       let hasilAkhir = template
         .replace(/{{JUDUL}}/g, () => judul)
