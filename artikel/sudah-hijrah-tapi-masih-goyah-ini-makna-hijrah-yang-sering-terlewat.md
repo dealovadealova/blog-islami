@@ -1,6 +1,6 @@
 ---
 title: Sudah Hijrah tapi Masih Goyah? Ini Makna Hijrah yang Sering Terlewat
-kategori: Hikmah
+kategori: Hikmah 
 date: 2026-11-02T09:43:00
 thumbnail: /images/1001577678.jpg
 summary: Hijrah sering diartikan sebagai berpindah alamat. Padahal, Rasulullah SAW mengajarkan sesuatu yang lebih dalam tentang arah hidup kita.
