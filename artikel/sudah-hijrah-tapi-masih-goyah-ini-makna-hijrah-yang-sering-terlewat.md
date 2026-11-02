@@ -8,7 +8,7 @@ summary: Hijrah sering diartikan sebagai berpindah alamat. Padahal, Rasulullah S
 
 Hijrah sering diartikan sebagai berpindah alamat. Padahal, Rasulullah SAW mengajarkan sesuatu yang lebih dalam tentang arah hidup kita.
 Setiap awal tahun Hijriah, timeline dipenuhi ucapan "selamat tahun baru" dan kalimat motivasi. Sebagian orang lalu menulis niat: "mulai hari ini saya mau hijrah." Yang dimaksud biasanya berhenti nongkrong, tidak lagi terlambat shalat, atau berhenti membuka hal-hal yang membuat hati gelisah. Niat itu baik. Tapi pernahkah kita bertanya, apa sebenarnya yang Nabi tinggalkan saat hijrah ke Madinah?
-Yang Ditinggalkan Nabi Bukan Sekadar Kota
+Yang Ditinggalkan Nabi Bukan Sekadar Kota. 
 Ketika Rasulullah SAW berhijrah dari Makkah, beliau meninggalkan tanah kelahiran, rumah, harta, dan keluarga besar yang selama ini menjadi sandaran. Tetapi perhatikan, yang Nabi tinggalkan bukan semata tempat. Yang beliau tinggalkan adalah lingkungan yang menghalangi beliau untuk beribadah dengan tenang dan menyebarkan kebenaran.
 Di sini ada pelajaran yang menarik. Hijrah bukan soal kabur dari kenyataan, tetapi soal memilih lingkungan yang memungkinkan kita tumbuh. Kita hidup di zaman ketika lingkungan kita hampir tidak pernah benar-benar diam: notifikasi, tontonan, dan percakapan yang terus memanggil. Hijrah hari ini sering dimulai dengan satu pertanyaan sederhana: lingkungan mana yang sedang membentuk saya?
 Niat Sebagai Pintu Awal
