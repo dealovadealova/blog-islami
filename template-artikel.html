@@ -265,26 +265,5 @@
     (d.head || d.body).appendChild(s);
   </script>
 
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (SUDAH DIPERBAIKI) -->
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (KEMBALI CANTIK & AMAN) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Hanya membidik area paragraf atau kutipan, BUKAN kotak artikel utama
-      const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li');
-      const polaArab = /[\u0600-\u06FF]/;
-      
-      semuaParagraf.forEach(el => {
-        if (polaArab.test(el.innerText)) {
-          // Kembalikan ke gaya asli jenengan yang elegan
-          el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
-          el.style.fontSize = "1.75rem";
-          el.style.lineHeight = "2.4";
-          el.style.textAlign = "right";
-          el.dir = "rtl"; 
-          el.classList.add("text-emerald-800", "my-6"); 
-        }
-      });
-    });
-  </script>
 </body>
 </html>
