@@ -265,28 +265,41 @@
     (d.head || d.body).appendChild(s);
   </script>
 
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (Logika Murni) -->
+  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (VERSI ANTI GAGAL) -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // HANYA mengecek paragraf dan kutipan, JANGAN PERNAH mengecek 'div'
       const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li');
       
       semuaParagraf.forEach(el => {
-        const teks = el.innerText || "";
-        
-        // Cek apakah ada huruf Arab
-        const adaArab = /[\u0600-\u06FF]/.test(teks);
-        // Cek apakah ada abjad biasa (A-Z)
-        const adaLatin = /[a-zA-Z]/.test(teks);
-        
-        // HANYA format jika paragraf itu murni Arab (TIDAK ADA abjad Latin sama sekali)
-        if (adaArab && !adaLatin) {
-          el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
-          el.style.fontSize = "1.75rem";
-          el.style.lineHeight = "2.4";
-          el.style.textAlign = "right";
-          el.dir = "rtl";
-          el.classList.add("text-emerald-800", "my-6");
+        // Jika di dalam paragraf ada huruf Arab
+        if (/[\u0600-\u06FF]/.test(el.innerHTML)) {
+          
+          // Pisahkan kalimat berdasarkan "Enter" (tag <br>)
+          let baris = el.innerHTML.split(/<br\s*\/?>/i);
+          
+          let htmlBaru = baris.map(b => {
+            let tempDiv = document.createElement('div');
+            tempDiv.innerHTML = b;
+            let teks = tempDiv.textContent || "";
+            
+            // Hitung jumlah huruf Arab vs Latin di baris tersebut
+            let jumlahArab = (teks.match(/[\u0600-\u06FF]/g) || []).length;
+            let jumlahLatin = (teks.match(/[a-zA-Z]/g) || []).length;
+            
+            // LOGIKA EMAS: Jika huruf Arab lebih banyak, sulap baris ini jadi hijau & besar
+            if (jumlahArab > 0 && jumlahArab > jumlahLatin) {
+              return `<div dir="rtl" class="text-emerald-800 my-4" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right; display: block;">${b}</div>`;
+            }
+            
+            // Jika huruf Latin (Indonesia) lebih banyak, biarkan normal
+            return b;
+          }).join('<br>');
+          
+          // Rapikan spasi berlebih
+          htmlBaru = htmlBaru.replace(/<\/div>\s*<br\s*\/?>/gi, '</div>');
+          
+          // Terapkan kembali ke artikel
+          el.innerHTML = htmlBaru;
         }
       });
     });
