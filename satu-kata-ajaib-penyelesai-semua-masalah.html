@@ -68,7 +68,7 @@
       
       <!-- WADAH ARTIKEL DENGAN FORMAT PROSE (Nomor & Enter Otomatis Berfungsi) -->
       <div class="prose prose-slate prose-emerald max-w-none text-[15px] md:text-lg leading-relaxed mb-12 text-justify">
-        <p dir="rtl" class="text-emerald-800 my-6" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;">Halo Sobat! Pernah nggak sih kita merasa hidup ini kayak &quot;langganan&quot; masalah? Baru satu masalah kelar, eh muncul lagi yang lain. Mulai dari rezeki yang seret, cuaca yang nggak menentu, sampai keinginan punya keturunan yang belum juga terkabul. </p>
+        <p>Halo Sobat! Pernah nggak sih kita merasa hidup ini kayak &quot;langganan&quot; masalah? Baru satu masalah kelar, eh muncul lagi yang lain. Mulai dari rezeki yang seret, cuaca yang nggak menentu, sampai keinginan punya keturunan yang belum juga terkabul. </p>
 <p>Kalau kamu lagi ngerasain hal itu, kamu wajib banget baca kisah legendaris dari seorang ulama besar, Hasan Al-Basri. Kisah ini bakal bikin kamu geleng-geleng kepala dan sadar kalau solusi terbesar hidup kita ternyata cuma berjarak satu kata!</p>
 <h4>**Satu Jawaban untuk Segala Keluhan**</h4>
 <p>Dikisahkan, suatu hari ada seorang laki-laki datang kepada Hasan Al-Basri. Dengan wajah cemas, ia mengeluh tentang musim kemarau panjang yang membuat tanaman mereka kering kerontang. Tanpa berpikir panjang, Hasan Al-Basri hanya menjawab:<br>*&quot;Istighfar&quot; (Mohonlah ampun kepada Allah).*</p>
@@ -81,7 +81,7 @@
 <p>Hasan Al-Basri tersenyum dan menjawab dengan tenang, &quot;Aku tidak menjawab itu dari opiniku sendiri. Aku hanya mengulang janji Allah SWT di dalam Al-Qur&#39;an!&quot;</p>
 <h4>**Janji Allah yang Terlupakan**</h4>
 <p>Hasan Al-Basri kemudian membacakan firman Allah SWT dalam Surah Nuh, yang menjadi landasan utama dari jawaban-jawabannya:</p>
-<blockquote dir="rtl" class="text-emerald-800 my-6" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;">
+<blockquote>
 <p>**فَقُلْتُ اسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا (10) يُرْسِلِ السَّمَاءَ عَلَيْكُمْ مِدْرَارًا (11) وَيُمْدِدْكُمْ بِأَمْوَالٍ وَبَنِينَ وَيَجْعَلْ لَكُمْ جَنَّاتٍ وَيَجْعَلْ لَكُمْ أَنْهَارًا (12)**</p>
 </blockquote>
 <p>**Terjemahan:**<br>&quot;Maka aku katakan kepada mereka: &#39;Mohonlah ampun kepada Tuhanmu, -sesungguhnya Dia adalah Maha Pengampun-, niscaya Dia akan mengirimkan hujan kepadamu dengan lebat, dan membanyakkan harta dan anak-anakmu, dan mengadakan untukmu kebun-kebun dan mengadakan (pula di dalamnya) untukmu sungai-sungai.&#39;&quot; (QS. Nuh: 10-12)</p>
@@ -288,5 +288,23 @@
     (d.head || d.body).appendChild(s);
   </script>
 
+  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (Tambahan Baru) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const semuaParagraf = document.querySelectorAll('.prose p, .prose h1, .prose h2, .prose h3, .prose blockquote, .prose span, .prose div');
+      const polaArab = /[\u0600-\u06FF]/;
+      
+      semuaParagraf.forEach(el => {
+        if (polaArab.test(el.innerText)) {
+          el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
+          el.style.fontSize = "1.75rem"; 
+          el.style.lineHeight = "2.4";
+          el.style.textAlign = "right"; 
+          el.dir = "rtl"; 
+          el.classList.add("text-emerald-800", "my-6"); 
+        }
+      });
+    });
+  </script>
 </body>
 </html>

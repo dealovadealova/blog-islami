@@ -68,13 +68,13 @@
       
       <!-- WADAH ARTIKEL DENGAN FORMAT PROSE (Nomor & Enter Otomatis Berfungsi) -->
       <div class="prose prose-slate prose-emerald max-w-none text-[15px] md:text-lg leading-relaxed mb-12 text-justify">
-        <p dir="rtl" class="text-emerald-800 my-6" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;">Halo Sobat! Pernah nggak sih kita membayangkan betapa dahsyatnya huruf hara hari kiamat nanti?</p>
+        <p>Halo Sobat! Pernah nggak sih kita membayangkan betapa dahsyatnya huruf hara hari kiamat nanti?</p>
 <p>Dalam sebuah hadits, Rasulullah ﷺ menggambarkan bahwa di Padang Mahsyar, matahari akan didekatkan sejauh satu mil. Panasnya luar biasa, sampai-sampai manusia berkeringat sesuai kadar dosa mereka. Ada yang keringatnya cuma sampai mata kaki, ada yang sampai lutut, bahkan ada yang hampir tenggelam!</p>
 <p>Di tengah kondisi yang mencekam itu, hanya ada satu &quot;V.I.P. Area&quot; yang paling dicari semua orang: <strong>Naungan Allah SWT</strong>.</p>
 <p>Lantas, siapa saja sih orang-orang beruntung yang dijanjikan mendapat naungan spesial saat tidak ada naungan selain naungan-Nya? Yuk, kita intip 7 golongan spesial ini beserta dalil yang memperkuatnya!</p>
 <h4><strong>📜 Dalil Hadits yang Shahih dan Terpercaya</strong></h4>
 <p>Sebelum kita bahas satu per satu, ini adalah landasan utamanya. Hadits ini sangat terkenal dan kualitasnya terjamin:</p>
-<blockquote dir="rtl" class="text-emerald-800 my-6" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;">
+<blockquote>
 <p><strong>عَنْ أَبِيْ هُرَيْرَةَ رَضِيَ اللهُ عَنْهُ عَنِ النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ قَالَ: سَبْعَةٌ يُظِلُّهُمُ اللهُ فِيْ ظِلِّهِ يَوْمَ لَا ظِلَّ إِلَّا ظِلُّهُ: إِمَامٌ عَادِلٌ، وَشَابٌّ نَشَأَ فِي عِبَادَةِ اللهِ، وَرَجُلٌ قَلْبُهُ مُعَلَّقٌ فِي الْمَسَاجِدِ، وَرَجُلَانِ تَحَابَّا فِي اللهِ اجْتَمَعَا عَلَيْهِ وَتَفَرَّقَا عَلَيْهِ، وَرَجُلٌ دَعَتْهُ امْرَأَةٌ ذَاتُ مَنْصِبٍ وَجَمَالٍ فَقَالَ: إِنِّي أَخَافُ اللهَ، وَرَجُلٌ تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا حَتَّى لَا تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ، وَرَجُلٌ ذَكَرَ اللهَ خَالِيًا فَفَاضَتْ عَيْنَاهُ</strong></p>
 </blockquote>
 <p><strong>Terjemahan:</strong><br>&quot;Dari Abu Hurairah <em>radhiyallahu &#39;anhu</em>, dari Nabi <em>shallallahu &#39;alaihi wa sallam</em>, beliau bersabda: &#39;Ada tujuh golongan yang akan dinaungi Allah dalam naungan-Nya pada hari di mana tidak ada naungan selain naungan-Nya: (1) Pemimpin yang adil, (2) Pemuda yang tumbuh dewasa dalam ibadah kepada Allah, (3) Laki-laki yang hatinya terpaut pada masjid, (4) Dua orang yang saling mencintai karena Allah, mereka berkumpul karena-Nya dan berpisah karena-Nya, (5) Laki-laki yang diajak berzina oleh wanita yang mempunyai kedudukan dan kecantikan, lalu ia berkata, &#39;Sesungguhnya aku takut kepada Allah&#39;, (6) Laki-laki yang bersedekah lalu ia menyembunyikannya hingga tangan kirinya tidak mengetahui apa yang diinfakkan oleh tangan kanannya, dan (7) Laki-laki yang mengingat Allah dalam keadaan sepi lalu kedua matanya meneteskan air mata.&#39;&quot;</p>
@@ -286,5 +286,23 @@
     (d.head || d.body).appendChild(s);
   </script>
 
+  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (Tambahan Baru) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const semuaParagraf = document.querySelectorAll('.prose p, .prose h1, .prose h2, .prose h3, .prose blockquote, .prose span, .prose div');
+      const polaArab = /[\u0600-\u06FF]/;
+      
+      semuaParagraf.forEach(el => {
+        if (polaArab.test(el.innerText)) {
+          el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
+          el.style.fontSize = "1.75rem"; 
+          el.style.lineHeight = "2.4";
+          el.style.textAlign = "right"; 
+          el.dir = "rtl"; 
+          el.classList.add("text-emerald-800", "my-6"); 
+        }
+      });
+    });
+  </script>
 </body>
 </html>
