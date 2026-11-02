@@ -24,10 +24,10 @@ Di Madinah, Nabi tidak hanya membangun rumah, tetapi juga persaudaraan antara ka
 Rasulullah SAW juga bersabda tentang pengaruh teman:
 الْمَرْءُ عَلَى دِينِ خَلِيلِهِ، فَلْيَنْظُرْ أَحَدُكُمْ مَنْ يُخَالِلُ
 "Seseorang itu mengikuti agama teman dekatnya. Maka hendaklah salah seorang dari kalian memperhatikan siapa yang ia jadikan teman dekat." (HR. Abu Dawud no. 4833, dan At-Tirmidzi no. 2378, dinilai hasan oleh sebagian ulama)
-Di era media sosial, pertanyaan tentang teman ini bisa diperluas menjadi pertanyaan tentang akun apa yang kita ikuti, kanal apa yang kita tonton, dan suara siapa yang paling sering masuk ke kepala kita. Hijrah digital ternyata sama pentingnya dengan hijrah fisik.
+Di era media sosial, pertanyaan tentang teman ini bisa diperluas menjadi pertanyaan tentang akun apa yang kita ikuti, kanal apa yang kita tonton, dan suara siapa yang paling sering masuk ke kepala kita. Hijrah digital ternyata sama pentingnya dengan hijrah fisik. 
 Hijrah dari Kebiasaan Buruk ke Kebiasaan Baik
 Hijrah juga bisa dibaca sebagai perpindahan dari kebiasaan lama yang merugikan menuju kebiasaan yang membangun. Tidak harus besar. Mulai dari bangun sebelum subuh, menyisihkan waktu untuk membaca Al-Qur'an, atau sekadar menahan diri dari komentar yang menyakiti orang lain.
 Kuncinya ada pada konsistensi. Dalam sebuah hadis, Rasulullah SAW menyatakan bahwa amal yang paling dicintai Allah adalah yang paling konsisten, meskipun sedikit. Konsistensi ini adalah hijrah yang paling sunyi, tetapi paling nyata dampaknya.
 Kesimpulan
 Hijrah Nabi mengajarkan bahwa perubahan selalu dimulai dari niat yang lurus, dijalani dengan proses, didukung lingkungan yang baik, dan dipelihara dengan konsistensi. Hijrah hari ini tidak selalu berarti pindah kota. Ia bisa berarti pindah dari kebiasaan yang melelahkan jiwa menuju kebiasaan yang menenangkan hati, dari lingkaran yang menjauhkan kita dari Allah menuju lingkaran yang mengingatkan kita kepada-Nya.
-Pertanyaan yang bisa kita bawa pulang bukan "kapan saya akan hijrah?", tetapi "hari ini, arah mana yang sedang saya tuju?"
+Pertanyaan yang bisa kita bawa pulang bukan "kapan saya akan hijrah?", tetapi "hari ini, arah mana yang sedang saya tuju??"
