@@ -68,12 +68,12 @@
       
       <!-- WADAH ARTIKEL DENGAN FORMAT PROSE (Nomor & Enter Otomatis Berfungsi) -->
       <div class="prose prose-slate prose-emerald max-w-none text-[15px] md:text-lg leading-relaxed mb-12 text-justify">
-        <p>Ketika seseorang wafat, kebaikannya tidak selalu berhenti. Ada tiga bentuk amal yang terus mengalir ke alam barzakh. Mari kita pahami mengapa ketiganya bisa bertahan.</p>
+        <p dir="rtl" class="text-emerald-800 my-6" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;">Ketika seseorang wafat, kebaikannya tidak selalu berhenti. Ada tiga bentuk amal yang terus mengalir ke alam barzakh. Mari kita pahami mengapa ketiganya bisa bertahan.</p>
 <p>Setiap kali ada kabar duka, grup WhatsApp ramai dengan ucapan belasungkawa. Foto almarhum diunggah, kalimat-kalimat indah ditulis, dan doa dibagikan dari mana-mana. Beberapa minggu kemudian, suasananya kembali sunyi. Hidup memang berjalan, tetapi pertanyaan yang tertinggal sering tidak terjawab: apa yang sebenarnya tetap bersama almarhum setelah semua itu reda?</p>
 <p>Hampir Semua Amal Ikut Terhenti</p>
 <p>Rasulullah SAW menjelaskan kondisi ini dalam sabdanya. Dalam riwayat Imam Muslim, beliau bersabda:</p>
 <p>إِذَا مَاتَ الْإِنْسَانُ انْقَطَعَ عَنْهُ عَمَلُهُ إِلَّا مِنْ ثَلَاثَةٍ: إِلَّا مِنْ صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ</p>
-<p>&quot;Apabila seorang manusia meninggal dunia, terputuslah amalnya kecuali tiga perkara: sedekah jariyah, ilmu yang bermanfaat, atau anak saleh yang mendoakannya.&quot; (HR. Muslim no. 1631, dari Abu Hurairah radhiyallahu &#39;anhu)</p>
+<p dir="rtl" class="text-emerald-800 my-6" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;">&quot;Apabila seorang manusia meninggal dunia, terputuslah amalnya kecuali tiga perkara: sedekah jariyah, ilmu yang bermanfaat, atau anak saleh yang mendoakannya.&quot; (HR. Muslim no. 1631, dari Abu Hurairah radhiyallahu &#39;anhu)</p>
 <p>Hadis ini terasa keras pada pandangan pertama. Shalat, puasa, dan sedekah yang kita lakukan hari ini memang bernilai, tetapi kemampuan kita untuk menambah amal berhenti ketika napas berhenti. Tiga hal ini adalah pengecualian yang membuka pintu harapan.</p>
 <p>Mengapa Hanya Tiga?</p>
 <p>Jika kita perhatikan, ketiga hal itu memiliki satu kesamaan yang menarik. Setiap amal tidak berhenti karena terus berbuah tanpa perlu kehadiran kita. Sumur wakaf terus mengalirkan air kepada orang yang tidak pernah kita kenal. Buku yang kita tulis terus dibaca dan menuntun orang berpikir benar. Anak yang kita didik dengan baik terus menengadahkan tangan dan menyebut nama kita dalam doanya.</p>
@@ -290,26 +290,5 @@
     (d.head || d.body).appendChild(s);
   </script>
 
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (SUDAH DIPERBAIKI) -->
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (KEMBALI CANTIK & AMAN) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Hanya membidik area paragraf atau kutipan, BUKAN kotak artikel utama
-      const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li');
-      const polaArab = /[\u0600-\u06FF]/;
-      
-      semuaParagraf.forEach(el => {
-        if (polaArab.test(el.innerText)) {
-          // Kembalikan ke gaya asli jenengan yang elegan
-          el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
-          el.style.fontSize = "1.75rem";
-          el.style.lineHeight = "2.4";
-          el.style.textAlign = "right";
-          el.dir = "rtl"; 
-          el.classList.add("text-emerald-800", "my-6"); 
-        }
-      });
-    });
-  </script>
 </body>
 </html>

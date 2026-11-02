@@ -68,7 +68,7 @@
       
       <!-- WADAH ARTIKEL DENGAN FORMAT PROSE (Nomor & Enter Otomatis Berfungsi) -->
       <div class="prose prose-slate prose-emerald max-w-none text-[15px] md:text-lg leading-relaxed mb-12 text-justify">
-        <p>Setiap hari, layar ponselmu menampilkan orang lain yang sudah sukses, sudah menikah, sudah punya rumah. Tidak ada yang salah dengan mereka. Yang sering keliru adalah cara kita membandingkan awal perjalanan kita dengan puncak perjalanan orang lain. Dari perbandingan yang timpang itu, lahir satu kesimpulan yang diam-diam melemahkan: “Saya tidak akan pernah sampai.”</p>
+        <p dir="rtl" class="text-emerald-800 my-6" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;">Setiap hari, layar ponselmu menampilkan orang lain yang sudah sukses, sudah menikah, sudah punya rumah. Tidak ada yang salah dengan mereka. Yang sering keliru adalah cara kita membandingkan awal perjalanan kita dengan puncak perjalanan orang lain. Dari perbandingan yang timpang itu, lahir satu kesimpulan yang diam-diam melemahkan: “Saya tidak akan pernah sampai.”</p>
 <p>Kesimpulan itulah yang ingin kita periksa.</p>
 <h3>Kesimpulan yang Terlihat Masuk Akal</h3>
 <p>Putus asa jarang datang dengan wajah yang jelas. Ia biasanya menyamar sebagai realisme. “Saya sudah berusaha, tapi hasilnya begini. Mungkin memang bukan jalan saya.” Terdengar wajar, bahkan terdengar bijak.</p>
@@ -77,12 +77,12 @@
 <h3>Larangan yang Ternyata Masuk Akal</h3>
 <p>Al-Qur’an melarang kita berputus asa, dan larangan itu tidak datang tanpa alasan. Allah berfirman:</p>
 <p>لَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ ۖ إِنَّهُ لَا يَيْأَسُ مِن رَّوْحِ اللَّهِ إِلَّا الْقَوْمُ الْكَافِرُونَ</p>
-<p><em>“Janganlah kamu berputus asa dari rahmat Allah. Sesungguhnya tidak ada yang berputus asa dari rahmat Allah melainkan kaum yang kafir.”</em> (QS. Yusuf: 87)</p>
+<p dir="rtl" class="text-emerald-800 my-6" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;"><em>“Janganlah kamu berputus asa dari rahmat Allah. Sesungguhnya tidak ada yang berputus asa dari rahmat Allah melainkan kaum yang kafir.”</em> (QS. Yusuf: 87)</p>
 <p>Perhatikan kata “kaum yang kafir”. Ayat ini tidak sekadar memerintah, tetapi menjelaskan akibatnya. Putus asa berarti menyimpulkan bahwa Allah tidak mampu atau tidak mau menolong. Kesimpulan itu sama dengan menyangkal sifat-sifat Allah sendiri. Jadi putus asa bukan sekadar perasaan sedih. Ia adalah keputusan yang keliru tentang siapa Tuhan yang kita sembah.</p>
 <h3>Kemudahan Itu Bersama, Bukan Sesudah</h3>
 <p>Ada satu hal yang sering terlewat dari cara kita membaca kesulitan. Allah berfirman:</p>
 <p>فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا</p>
-<p><em>“Maka sesungguhnya bersama kesulitan ada kemudahan. Sesungguhnya bersama kesulitan ada kemudahan.”</em> (QS. Al-Insyirah: 5–6)</p>
+<p dir="rtl" class="text-emerald-800 my-6" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;"><em>“Maka sesungguhnya bersama kesulitan ada kemudahan. Sesungguhnya bersama kesulitan ada kemudahan.”</em> (QS. Al-Insyirah: 5–6)</p>
 <p>Kata <em>ma’a</em> berarti “bersama”, bukan “sesudah”. Kita sering menunggu kesulitan selesai dulu, baru mulai mencari kemudahan. Ayat ini mengajak kita berpikir sebaliknya: kemudahan sudah hadir di dalam kesulitan itu sendiri. Ia bisa berupa pelajaran yang tidak kita minta, orang baik yang muncul di saat genting, atau kekuatan yang tumbuh tanpa kita sadari. Mata yang terbiasa mencari akan menemukannya.</p>
 <p>Ketika Imam An-Nawawi dalam <em>Riyadhus Shalihin</em> membahas harapan kepada Allah, beliau menekankan keseimbangan. Bayangkan pengemudi yang tetap waspada di jalan, tetapi tidak takut untuk berkendara. Kalau ia hanya takut, ia tidak akan pernah sampai. Kalau ia hanya yakin tanpa waspada, ia mudah celaka. Harapan dan rasa takut kepada Allah bekerja seperti itu: keduanya menjaga hati agar tetap berjalan dengan selamat.</p>
 <p><img src="/images/Golden_light_breaking_through_rock_51d0a6e2.jpg" alt=""></p>
@@ -294,26 +294,5 @@
     (d.head || d.body).appendChild(s);
   </script>
 
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (SUDAH DIPERBAIKI) -->
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (KEMBALI CANTIK & AMAN) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Hanya membidik area paragraf atau kutipan, BUKAN kotak artikel utama
-      const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li');
-      const polaArab = /[\u0600-\u06FF]/;
-      
-      semuaParagraf.forEach(el => {
-        if (polaArab.test(el.innerText)) {
-          // Kembalikan ke gaya asli jenengan yang elegan
-          el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
-          el.style.fontSize = "1.75rem";
-          el.style.lineHeight = "2.4";
-          el.style.textAlign = "right";
-          el.dir = "rtl"; 
-          el.classList.add("text-emerald-800", "my-6"); 
-        }
-      });
-    });
-  </script>
 </body>
 </html>

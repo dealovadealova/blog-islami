@@ -68,7 +68,7 @@
       
       <!-- WADAH ARTIKEL DENGAN FORMAT PROSE (Nomor & Enter Otomatis Berfungsi) -->
       <div class="prose prose-slate prose-emerald max-w-none text-[15px] md:text-lg leading-relaxed mb-12 text-justify">
-        <p>Halo Sobat! Kalau ditanya siapa musuh terbesar seorang Muslim, mungkin jawabannya setan. Tapi pernah nggak sih kita sadar kalau &quot;musuh&quot; itu justru ada di tubuh kita sendiri? Tepatnya... di mulut kita! 🤐</p>
+        <p dir="rtl" class="text-emerald-800 my-6" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;">Halo Sobat! Kalau ditanya siapa musuh terbesar seorang Muslim, mungkin jawabannya setan. Tapi pernah nggak sih kita sadar kalau &quot;musuh&quot; itu justru ada di tubuh kita sendiri? Tepatnya... di mulut kita! 🤐</p>
 <p>Ada satu hadits Rasulullah ﷺ yang bikin bulu kuduk merinding sekaligus menjadi teguran keras bagi kita semua. Beliau secara spesifik menyebutkan golongan manusia yang **paling Ia benci** dan yang posisinya akan **paling jauh** dari beliau saat di Padang Mahsyar nanti.</p>
 <p>Yang mengejutkan, golongan ini bukanlah para pelaku dosa besar seperti pencuri atau perampok. Melainkan orang-orang biasa yang punya kebiasaan buruk dalam berbicara. Penasaran siapa saja mereka? Yuk, simak baik-baik!</p>
 <p>**Ciri-Ciri Orang yang Dijauhi Rasulullah ﷺ**</p>
@@ -295,26 +295,5 @@
     (d.head || d.body).appendChild(s);
   </script>
 
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (SUDAH DIPERBAIKI) -->
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (KEMBALI CANTIK & AMAN) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Hanya membidik area paragraf atau kutipan, BUKAN kotak artikel utama
-      const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li');
-      const polaArab = /[\u0600-\u06FF]/;
-      
-      semuaParagraf.forEach(el => {
-        if (polaArab.test(el.innerText)) {
-          // Kembalikan ke gaya asli jenengan yang elegan
-          el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
-          el.style.fontSize = "1.75rem";
-          el.style.lineHeight = "2.4";
-          el.style.textAlign = "right";
-          el.dir = "rtl"; 
-          el.classList.add("text-emerald-800", "my-6"); 
-        }
-      });
-    });
-  </script>
 </body>
 </html>
