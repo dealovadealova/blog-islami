@@ -13,10 +13,15 @@ files.forEach(file => {
       const info = parts[1];
       let isi = parts[2];
       
-      // [FITUR BARU] PEMISAH OTOMATIS: Memaksa enter ganda antara teks Latin & Arab
-      // Ini menjamin tulisan Indonesia dan Arab dipisah ke kotak paragraf yang berbeda!
-      isi = isi.replace(/([a-zA-Z0-9.,!?])\r?\n([\u0600-\u06FF])/g, '$1\n\n$2');
-      isi = isi.replace(/([\u0600-\u06FF])\r?\n([a-zA-Z0-9.,!?])/g, '$1\n\n$2');
+      // 1. PISAHKAN "KAMAR" SECARA PAKSA
+      // Memastikan baris yang ada huruf Arabnya dipisah dari bahasa Indonesia (diberi Enter ganda otomatis)
+      let baris = isi.split(/\r?\n/);
+      let isiBaru = baris.map(b => {
+          if (/[\u0600-\u06FF]/.test(b)) {
+              return '\n\n' + b + '\n\n';
+          }
+          return b;
+      }).join('\n');
       
       let judul = (info.match(/title:\s*['"]?(.*?)['"]?(?:\r?\n|$)/i) || [])[1] || 'Tanpa Judul';
       let kategoriMatch = info.match(/(?:kategori|category):\s*['"]?(.*?)['"]?(?:\r?\n|$)/i);
@@ -45,8 +50,14 @@ files.forEach(file => {
       let opsiTanggal = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Jakarta' };
       let tanggalCantik = dateObj.toLocaleDateString('id-ID', opsiTanggal).replace(/\./g, ':') + ' WIB';
       
-      // PENCETAKAN HTML (Cara Baru yang Benar untuk Versi Terbaru)
-      const htmlKonten = marked.parse(isi, { breaks: true, gfm: true });
+      // 2. PROSES CETAK HTML
+      let htmlKonten = marked.parse(isiBaru, { breaks: true, gfm: true });
+      
+      // 3. INJEKSI GAYA ARAB (Mewarnai hijau raksasa HANYA pada paragraf Arab)
+      const styleArab = 'dir="rtl" class="text-emerald-800 my-6" style="font-family: \'Amiri\', \'Traditional Arabic\', serif; font-size: 1.75rem; line-height: 2.4; text-align: right;"';
+      
+      htmlKonten = htmlKonten.replace(/<p>([\s\S]*?[\u0600-\u06FF][\s\S]*?)<\/p>/g, `<p ${styleArab}>$1</p>`);
+      htmlKonten = htmlKonten.replace(/<blockquote>([\s\S]*?[\u0600-\u06FF][\s\S]*?)<\/blockquote>/g, `<blockquote ${styleArab}>$1</blockquote>`);
       
       let hasilAkhir = template
         .replace(/{{JUDUL}}/g, () => judul)
