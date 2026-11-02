@@ -11,7 +11,7 @@ Setiap awal tahun Hijriah, timeline dipenuhi ucapan "selamat tahun baru" dan kal
 Yang Ditinggalkan Nabi Bukan Sekadar Kota. 
 Ketika Rasulullah SAW berhijrah dari Makkah, beliau meninggalkan tanah kelahiran, rumah, harta, dan keluarga besar yang selama ini menjadi sandaran. Tetapi perhatikan, yang Nabi tinggalkan bukan semata tempat. Yang beliau tinggalkan adalah lingkungan yang menghalangi beliau untuk beribadah dengan tenang dan menyebarkan kebenaran.
 Di sini ada pelajaran yang menarik. Hijrah bukan soal kabur dari kenyataan, tetapi soal memilih lingkungan yang memungkinkan kita tumbuh. Kita hidup di zaman ketika lingkungan kita hampir tidak pernah benar-benar diam: notifikasi, tontonan, dan percakapan yang terus memanggil. Hijrah hari ini sering dimulai dengan satu pertanyaan sederhana: lingkungan mana yang sedang membentuk saya?
-Niat Sebagai Pintu Awal. 
+Niat Sebagai Pintu Awal
 Ada hadis yang paling sering dikutip ketika membahas hijrah, yaitu sabda Rasulullah SAW:
 إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى
 "Sesungguhnya setiap amal tergantung niatnya, dan setiap orang akan mendapatkan sesuai apa yang ia niatkan." (HR. Bukhari no. 1, dan Muslim no. 1907, dari Umar bin Al-Khattab radhiyallahu 'anhu)
