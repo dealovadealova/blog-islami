@@ -308,18 +308,20 @@ Ingin dibahas tema lain? Tulis temanya di kolom komentar, misalnya tentang sabar
     (d.head || d.body).appendChild(s);
   </script>
 
-  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (Tambahan Baru) -->
+  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (SUDAH DIPERBAIKI) -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const semuaParagraf = document.querySelectorAll('.prose p, .prose h1, .prose h2, .prose h3, .prose blockquote, .prose span, .prose div');
+      // Dihapus bagian '.prose div' dan '.prose span' agar tidak merusak bungkus utama artikel
+      const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li, .prose h1, .prose h2, .prose h3');
       const polaArab = /[\u0600-\u06FF]/;
       
       semuaParagraf.forEach(el => {
+        // Cek apakah di dalam paragraf ini ada teks Arab
         if (polaArab.test(el.innerText)) {
           el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
-          el.style.fontSize = "1.75rem"; 
-          el.style.lineHeight = "2.4";
-          el.style.textAlign = "right"; 
+          el.style.fontSize = "1.75rem"; // Huruf besar
+          el.style.lineHeight = "2.4"; // Jarak baris renggang
+          el.style.textAlign = "right"; // Rata kanan
           el.dir = "rtl"; 
           el.classList.add("text-emerald-800", "my-6"); 
         }
