@@ -84,12 +84,9 @@
 <p><strong>Pelajaran Berharga untuk Kita Semua</strong></p>
 <p>Dari kisah nyata para sahabat ini, ada 3 hikmah besar yang bisa kita bawa pulang ke dalam kehidupan sehari-hari:</p>
 <ol>
-<li><strong>Pentingnya Memiliki &quot;Amalan Rahasia&quot; (<em>Khobi&#39;ah Shalihah</em>)</strong>
-Di zaman modern di mana semua hal mudah diunggah ke media sosial, kita ditantang untuk memiliki minimal satu amalan andalan yang <strong>hanya diketahui oleh kita dan Allah saja</strong>. Entah itu sedekah sembunyi-sembunyi, shalat tahajud saat semua orang tidur, atau menolong orang lain tanpa mempublikasikannya.</li>
-<li><strong>Penjagaan Hati Terhadap Keikhlasan</strong>
-Menyembunyikan amal adalah tameng terbaik dari penyakit <em>riya</em> (ingin dipuji) dan <em>sum&#39;ah</em> (ingin didengar). Pujian manusia itu semu dan sementara, namun pandangan Allah bersifat kekal.</li>
-<li><strong>Pemimpin adalah Pelayan Masyarakat</strong>
-Baik Abu Bakar maupun Umar bin Khattab mengajarkan bahwa jabatan tinggi tidak membuat mereka gengsi untuk membersihkan rumah seorang nenek buta sebatang kara. Mereka memikul tanggung jawab secara nyata di hadapan Allah.</li>
+<li><strong>Pentingnya Memiliki &quot;Amalan Rahasia&quot; (<em>Khobi&#39;ah Shalihah</em>)</strong><br>Di zaman modern di mana semua hal mudah diunggah ke media sosial, kita ditantang untuk memiliki minimal satu amalan andalan yang <strong>hanya diketahui oleh kita dan Allah saja</strong>. Entah itu sedekah sembunyi-sembunyi, shalat tahajud saat semua orang tidur, atau menolong orang lain tanpa mempublikasikannya.</li>
+<li><strong>Penjagaan Hati Terhadap Keikhlasan</strong><br>Menyembunyikan amal adalah tameng terbaik dari penyakit <em>riya</em> (ingin dipuji) dan <em>sum&#39;ah</em> (ingin didengar). Pujian manusia itu semu dan sementara, namun pandangan Allah bersifat kekal.</li>
+<li><strong>Pemimpin adalah Pelayan Masyarakat</strong><br>Baik Abu Bakar maupun Umar bin Khattab mengajarkan bahwa jabatan tinggi tidak membuat mereka gengsi untuk membersihkan rumah seorang nenek buta sebatang kara. Mereka memikul tanggung jawab secara nyata di hadapan Allah.</li>
 </ol>
 <p>Jika Anda menyukai kisah inspiratif seperti ini, bagian mana yang ingin Anda eksplorasi lebih jauh?</p>
 <ul>
@@ -295,19 +292,16 @@ Baik Abu Bakar maupun Umar bin Khattab mengajarkan bahwa jabatan tinggi tidak me
   </script>
 
   <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (SUDAH DIPERBAIKI) -->
+  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (KEMBALI CANTIK & AMAN) -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li, .prose h1, .prose h2, .prose h3');
+      // Hanya membidik area paragraf atau kutipan, BUKAN kotak artikel utama
+      const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li');
+      const polaArab = /[\u0600-\u06FF]/;
       
       semuaParagraf.forEach(el => {
-        const teks = el.innerText || "";
-        
-        // Robot menghitung jumlah huruf Arab vs huruf Latin (Indonesia)
-        const jumlahArab = (teks.match(/[\u0600-\u06FF\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/g) || []).length;
-        const jumlahLatin = (teks.match(/[a-zA-Z]/g) || []).length;
-        
-        // HANYA ubah ke gaya Arab JIKA huruf Arab LEBIH BANYAK dari huruf Latin
-        if (jumlahArab > 0 && jumlahArab > jumlahLatin) {
+        if (polaArab.test(el.innerText)) {
+          // Kembalikan ke gaya asli jenengan yang elegan
           el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
           el.style.fontSize = "1.75rem";
           el.style.lineHeight = "2.4";

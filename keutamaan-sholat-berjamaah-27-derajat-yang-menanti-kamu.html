@@ -312,19 +312,16 @@
   </script>
 
   <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (SUDAH DIPERBAIKI) -->
+  <!-- SCRIPT OTOMATIS MERAPIKAN TEKS ARAB (KEMBALI CANTIK & AMAN) -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li, .prose h1, .prose h2, .prose h3');
+      // Hanya membidik area paragraf atau kutipan, BUKAN kotak artikel utama
+      const semuaParagraf = document.querySelectorAll('.prose p, .prose blockquote, .prose li');
+      const polaArab = /[\u0600-\u06FF]/;
       
       semuaParagraf.forEach(el => {
-        const teks = el.innerText || "";
-        
-        // Robot menghitung jumlah huruf Arab vs huruf Latin (Indonesia)
-        const jumlahArab = (teks.match(/[\u0600-\u06FF\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/g) || []).length;
-        const jumlahLatin = (teks.match(/[a-zA-Z]/g) || []).length;
-        
-        // HANYA ubah ke gaya Arab JIKA huruf Arab LEBIH BANYAK dari huruf Latin
-        if (jumlahArab > 0 && jumlahArab > jumlahLatin) {
+        if (polaArab.test(el.innerText)) {
+          // Kembalikan ke gaya asli jenengan yang elegan
           el.style.fontFamily = "'Amiri', 'Traditional Arabic', serif";
           el.style.fontSize = "1.75rem";
           el.style.lineHeight = "2.4";
