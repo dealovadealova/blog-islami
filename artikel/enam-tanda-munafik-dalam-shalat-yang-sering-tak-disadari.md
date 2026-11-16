@@ -16,7 +16,7 @@ Ada shalat yang gerakannya lengkap, waktunya tepat, bahkan terlihat khusyuk dari
 
 Dalam kitab \*Ash-Shalah wa Hukmu Tarkiha\* (كتاب الصلاة وحكم تاركها) karya Ibnul Qayyim Al-Jauziyyah, pada halaman 80, beliau menyebutkan enam sifat dalam shalat yang termasuk tanda-tanda kemunafikan. Beliau menulis:
 
-\*"فَهَذِهِ سِتُّ صِفَاتٍ فِي الصَّلَاةِ مِنْ عَلَامَاتِ النِّفَاقِ: ١. الْكَسَلُ عِنْدَ الْقِيَامِ إِلَيْهَا ٢. وَمُرَاءَاةُ النَّاسِ فِي فِعْلِهَا ٣. وَتَأْخِيرُهَا ٤. وَنَقْرُهَا ٥. وَقِلَّةُ ذِكْرِ اللَّهِ فِيهَا ٦. وَالتَّخَلُّفُ عَنْ جَمَاعَتِهَا"\*
+\*"فَهَذِهِ سِتُّ صِفَاتٍ فِي الصَّلَاةِ مِنْ عَلَامَاتِ النِّفَاقِ: ١ الْكَسَلُ عِنْدَ الْقِيَامِ إِلَيْهَا ٢ وَمُرَاءَاةُ النَّاسِ فِي فِعْلِهَا ٣ وَتَأْخِيرُهَا ٤ وَنَقْرُهَا ٥ وَقِلَّةُ ذِكْرِ اللَّهِ فِيهَا ٦ وَالتَّخَلُّفُ عَنْ جَمَاعَتِهَا"\*
 
 Terjemahannya: "Maka inilah enam sifat dalam shalat yang termasuk tanda-tanda kemunafikan: 1. malas ketika bangkit untuk mengerjakannya; 2. riya' di hadapan manusia dalam mengerjakannya; 3. menunda-nunda waktunya; 4. mematuk-matuknya (gerakan tergesa-gesa seperti patukan ayam); 5. sedikitnya dzikir kepada Allah di dalamnya; 6. tertinggal dari shalat berjamaahnya."
 
