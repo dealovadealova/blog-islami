@@ -14,7 +14,7 @@ Ada shalat yang gerakannya lengkap, waktunya tepat, bahkan terlihat khusyuk dari
 
 \## Rujukan: Ibnul Qayyim dan Kitabnya
 
-Dalam kitab \*Ash-Shalah wa Hukmu Tarkiha\* (كتاب الصلاة وحكم تاركها) karya Ibnul Qayyim Al-Jauziyyah, pada halaman 80, beliau menyebutkan enam sifat dalam shalat yang termasuk tanda-tanda kemunafikan. Beliau menulis:
+Dalam kitab \*Ash-Shalah wa Hukmu Tarkiha\* كتاب الصلاة وحكم تاركها karya Ibnul Qayyim Al-Jauziyyah, pada halaman 80, beliau menyebutkan enam sifat dalam shalat yang termasuk tanda-tanda kemunafikan. Beliau menulis:
 
 فَهَذِهِ سِتُّ صِفَاتٍ فِي الصَّلَاةِ مِنْ عَلَامَاتِ النِّفَاقِ ١ الْكَسَلُ عِنْدَ الْقِيَامِ إِلَيْهَا ٢ وَمُرَاءَاةُ النَّاسِ فِي فِعْلِهَا ٣ وَتَأْخِيرُهَا ٤ وَنَقْرُهَا ٥ وَقِلَّةُ ذِكْرِ اللَّهِ فِيهَا ٦ وَالتَّخَلُّفُ عَنْ جَمَاعَتِهَا
 
