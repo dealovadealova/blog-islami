@@ -17,7 +17,7 @@ collections:
       - label: "Kategori"
         name: "kategori"
         widget: "select"
-        options: ["Akhlak", "Motivasi", "Inspirasi", "Kisah", "Renungan", "Hikmah", "True Story", "Ibadah", "Kutipan Kitab", "Kata Hatiku"]
+        options: ["Akhlak", "Motivasi", "Inspirasi", "Kisah", "Renungan", "Hikmah", "True Story", "Ibadah", "Kutipan Kitab", "Kata Hatiku", "Khutbah Jumat Indonesia", "Khutbah Jumat Jawa"]
       - {label: "Tanggal", name: "date", widget: "datetime"}
       - {label: "Gambar Ilustrasi", name: "thumbnail", widget: "image", required: false}
       - {label: "Ringkasan", name: "summary", widget: "text"}
