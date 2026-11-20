@@ -6,7 +6,7 @@ thumbnail: /images/Harp_and_mountains_at_dawn_1b1a3e3b.jpg
 summary: Nabi Daud alaihissalam dikenal sebagai raja yang kuat, merdu suaranya, dan rajin beribadah.  Namun, kisahnya juga mengandung pelajaran tentang ujian kekuasaan, pentingnya taubat ketika tergelincir, dan keadilan dalam memutuskan perkara. Artikel ini membahasnya berdasarkan Al-Qur'an dan hadis sahih.
 ---
 
-\# Kisah Nabi Daud: Sabar, Taubat, dan Keadilan dalam Kekuasaan
+\# Kisah Nabi Daud: Sabar, Taubat, dan Keadilan dalam Kekuasaan 
 
 \*Tidak semua orang kuat diuji dengan kelemahan. Sebagian diuji justru dengan kelebihan yang membuatnya terlena.\*
 
