@@ -3,7 +3,7 @@ title: Enam Tanda Munafik dalam Shalat yang Sering Tak Disadari
 kategori: Kutipan Kitab
 date: 2026-11-16T09:29:00
 thumbnail: /images/Prayer_mat_on_floor_b6395d25.jpg
-summary: 'Shalat adalah tiang agama, tetapi bisa dilakukan dengan hati yang jauh dari Allah. Artikel ini membahas enam tanda munafik dalam shalat sebagaimana disebutkan Ibnul Qayyim Al-Jauziyyah dalam kitab Ash-Shalah wa Hukmu Tarkiha, berlandaskan QS. An-Nisa: 142 dan hadis riwayat Muslim, serta mengajak pembaca memeriksa kualitas shalatnya sendiri.'
+description: 'Shalat adalah tiang agama, tetapi bisa dilakukan dengan hati yang jauh dari Allah. Artikel ini membahas enam tanda munafik dalam shalat sebagaimana disebutkan Ibnul Qayyim Al-Jauziyyah dalam kitab Ash-Shalah wa Hukmu Tarkiha, berlandaskan QS. An-Nisa: 142 dan hadis riwayat Muslim, serta mengajak pembaca memeriksa kualitas shalatnya sendiri.'
 ---
 
 \# Enam Tanda Munafik dalam Shalat yang Sering Tak Disadari
