@@ -4,7 +4,6 @@ kategori: Renungan
 date: 2026-11-20T10:43:00
 thumbnail: /images/Glowing_lantern_on_dark_landscape_f3b0a265.jpg
 description: Hidup di akhir zaman terasa berat bagi hati. Kabar datang tanpa henti, nilai-nilai sering kabur, dan kegelisahan mudah sekali menetap. Renungan ini mengajak kita kembali memeriksa hati, mengingat apa yang diajarkan Al-Qur'an dan hadis tentang akhir zaman, serta menemukan cara menjaga iman tetap hidup.
-summary: Hidup di akhir zaman terasa berat bagi hati. Kabar datang tanpa henti, nilai-nilai sering kabur, dan kegelisahan mudah sekali menetap. Renungan ini mengajak kita kembali memeriksa hati, mengingat apa yang diajarkan Al-Qur'an dan hadis tentang akhir zaman, serta menemukan cara menjaga iman tetap hidup.
 ---
 
 \# Hati yang Tetap Hidup di Akhir Zaman
