@@ -60,6 +60,7 @@ files.forEach(file => {
         .replace(/{{GAMBAR}}/g, () => gambar)
         .replace(/{{KONTEN}}/g, () => htmlKonten) // Menggunakan arrow function () => agar aman dari kerusakan karakter
         .replace(/{{NAMA_FILE_MD}}/g, () => file)
+        .replace(/{{NAMA_FILE_HTML}}/g, () => file.replace('.md', '.html'))
         .replace(/{{TANGGAL}}/g, () => tanggalCantik); 
         
       const namaFileBaru = file.replace('.md', '.html');
