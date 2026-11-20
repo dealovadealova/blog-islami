@@ -11,7 +11,7 @@ summary: Hidup di akhir zaman terasa berat bagi hati. Kabar datang tanpa henti, 
 
 \*Dunia boleh semakin ramai, tetapi hati hanya bisa tenang jika ia tahu ke mana harus pulang.\*
 
-Ada perasaan yang sulit dijelaskan belakangan ini. Setiap pagi, layar sudah menyala dengan kabar yang membuat dada sesak. Ada yang tampak biasa menjadi luar biasa, dan ada yang luar biasa menjadi biasa. Sebagian orang menyebutnya sebagai zaman yang makin gelisah. Sebagian lain merasa lelah, tetapi tidak tahu harus mengadu kepada siapa.
+Ada perasaan yang sulit dijelaskan belakangan ini. Setiap pagi, layar sudah menyala dengan kabar yang membuat dada sesak. Ada yang tampak biasa menjadi luar biasa, dan ada yang luar biasa menjadi biasa. Sebagian orang menyebutnya sebagai zaman yang makin gelisah. Sebagian lain merasa lelah, tetapi tidak tahu harus mengadu kepada siapa?
 
 Dalam kondisi seperti ini, pertanyaan yang paling penting bukan "kapan semua ini berakhir?", melainkan "bagaimana hati saya tetap hidup?"
 
