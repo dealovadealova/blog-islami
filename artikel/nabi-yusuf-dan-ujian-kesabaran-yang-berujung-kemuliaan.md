@@ -3,7 +3,7 @@ title: Nabi Yusuf dan Ujian Kesabaran yang Berujung Kemuliaan
 kategori: Kisah
 date: 2026-11-18T08:26:00
 thumbnail: /images/Stone_well_at_dusk_c270fd46.jpg
-summary: Kisah Nabi Yusuf alaihissalam sering dibaca sebagai cerita tentang kecantikan dan kekuasaan, padahal inti pesannya adalah sabar, takwa, dan kepercayaan kepada takdir Allah. Artikel ini menelusuri perjalanan Yusuf dari sumur hingga istana berdasarkan Al-Qur'an, serta mengambil pelajaran untuk hidup hari ini.
+description: Kisah Nabi Yusuf alaihissalam sering dibaca sebagai cerita tentang kecantikan dan kekuasaan, padahal inti pesannya adalah sabar, takwa, dan kepercayaan kepada takdir Allah. Artikel ini menelusuri perjalanan Yusuf dari sumur hingga istana berdasarkan Al-Qur'an, serta mengambil pelajaran untuk hidup hari ini.
 ---
 
 \# Kisah Nabi Yusuf: Hikmah Sabar, Takwa, dan Ampunan
